@@ -29,7 +29,7 @@ window.SITE = {
 window.CHAPTERS = [
   //{ slug: "units-and-measurements", title: "Units and Measurements", group: "Mechanics", main: [1,2,3,4], adv: [1,2], mainKey: [1,2,3,4], advKey: [1,2], added: "2026-08-01" },
   //{ slug: "kinematics",             title: "Kinematics",             group: "Mechanics", main: [1,2,3,4], adv: [1],   mainKey: [1,2],     advKey: [],    added: "2026-09-10" },
-  { slug: "laws-of-motion",         title: "Laws of Motion",         group: "Mechanics", main: [1,2,3,4,5],     adv: [],    mainKey: [],       advKey: [],    added: "2026-10-21" },
+  { slug: "laws-of-motion",         title: "Laws of Motion",         group: "Mechanics", main: [1,2,3,4],     adv: [],    mainKey: [],       advKey: [],    added: "2026-10-21" },
   //{ slug: "rotational-motion",      title: "Rotational Motion",      group: "Mechanics", main: [],        adv: [],    added: "2026-10-18" },
   //{ slug: "thermodynamics",         title: "Thermodynamics",         group: "Heat and Thermodynamics", main: [1], adv: [], mainKey: [1], added: "2026-10-05" },
   //{ slug: "electrostatics",         title: "Electrostatics",         group: "Electricity and Magnetism", main: [1,2,3], adv: [1], mainKey: [1,2,3], advKey: [1], added: "2026-10-20" },
