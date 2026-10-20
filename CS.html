@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Physics Study Material: Coming Soon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#eef3f1; --grid:#d3dedb; --ink:#14213d; --muted:#4d5b74;
+  --blue:#2b4eff; --amber:#c98200; --card:#fbfdfc; --onblue:#fff;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1626; --grid:#1c2740; --ink:#e8edf7; --muted:#9aa8c2;
+    --blue:#6f8bff; --amber:#f2b632; --card:#162036; --onblue:#0f1626; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1626; --grid:#1c2740; --ink:#e8edf7; --muted:#9aa8c2;
+  --blue:#6f8bff; --amber:#f2b632; --card:#162036; --onblue:#0f1626; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0; min-height:100%; color:var(--ink); background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:32px 32px;
+  font-family:'Newsreader',Georgia,serif; font-size:1.125rem; line-height:1.6;
+}
+.wrap{max-width:1040px; margin:0 auto; padding:28px 24px 56px}
+header{display:flex; align-items:center; justify-content:space-between; gap:16px}
+.brand{font-family:'Bricolage Grotesque',system-ui,sans-serif; font-weight:800; font-size:1.2rem; letter-spacing:-.01em}
+.badge{font-family:'Bricolage Grotesque',system-ui,sans-serif; font-weight:500; font-size:.9rem; padding:6px 14px; border:2px solid var(--ink); border-radius:999px}
+h1{
+  font-family:'Bricolage Grotesque',system-ui,sans-serif; font-weight:800;
+  font-size:clamp(2.6rem,8vw,5.6rem); line-height:.98; letter-spacing:-.035em; margin:56px 0 20px; max-width:14ch;
+}
+.lede{max-width:46ch; color:var(--muted); font-size:1.25rem; margin:0}
+.hero{display:grid; grid-template-columns:1fr; gap:28px; align-items:end}
+@media(min-width:900px){.hero{grid-template-columns:1.05fr 1fr}}
+.lab{background:var(--card); border:2px solid var(--ink); border-radius:6px; padding:16px 16px 14px}
+.lab svg{display:block; width:100%; height:auto}
+.axis{stroke:var(--ink); stroke-width:2}
+.path{fill:none; stroke:var(--blue); stroke-width:3; stroke-dasharray:7 7}
+.ball{fill:var(--amber); stroke:var(--ink); stroke-width:2}
+.lab .t{fill:var(--muted); font-family:'Bricolage Grotesque',system-ui,sans-serif; font-size:13px}
+.ctl{display:flex; align-items:center; gap:14px; margin-top:8px; font-family:'Bricolage Grotesque',system-ui,sans-serif; font-weight:500}
+.ctl input{flex:1; accent-color:var(--blue); min-width:0}
+.ctl output{min-width:3.2ch; text-align:right}
+.cap{margin:6px 0 0; font-size:.95rem; color:var(--muted)}
+.clock{display:flex; gap:12px; flex-wrap:wrap; margin:44px 0 0}
+.unit{min-width:84px; padding:12px 14px; background:var(--card); border:2px solid var(--ink); border-radius:6px; text-align:center}
+.unit b{display:block; font-family:'Bricolage Grotesque',system-ui,sans-serif; font-size:2.2rem; line-height:1; font-variant-numeric:tabular-nums}
+.unit span{font-size:.95rem; color:var(--muted)}
+.notify{margin-top:36px; max-width:560px}
+.notify h2,.topics h2{font-family:'Bricolage Grotesque',system-ui,sans-serif; font-size:1.5rem; margin:0 0 6px}
+.notify p{margin:0 0 14px; color:var(--muted)}
+.row{display:flex; gap:10px; flex-wrap:wrap}
+input[type=email]{
+  flex:1 1 240px; min-width:0; padding:13px 14px; font:inherit; color:var(--ink);
+  background:var(--card); border:2px solid var(--ink); border-radius:6px;
+}
+button{
+  padding:13px 22px; font:700 1rem 'Bricolage Grotesque',system-ui,sans-serif; cursor:pointer;
+  color:var(--onblue); background:var(--blue); border:2px solid var(--ink); border-radius:6px;
+}
+button:hover{filter:brightness(1.08)}
+:focus-visible{outline:3px solid var(--amber); outline-offset:2px}
+.msg{min-height:1.6em; margin:10px 0 0; font-size:1rem}
+.topics{margin-top:64px}
+.topics ul{list-style:none; margin:16px 0 0; padding:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px}
+.topics li{background:var(--card); border:2px solid var(--ink); border-radius:6px; padding:16px}
+.topics strong{display:block; font-family:'Bricolage Grotesque',system-ui,sans-serif; font-size:1.15rem; margin-bottom:4px}
+.topics em{display:block; color:var(--blue); font-size:1.05rem; margin-bottom:6px}
+.topics small{color:var(--muted); font-size:.98rem; line-height:1.4; display:block}
+footer{margin-top:56px; color:var(--muted); font-size:.95rem}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">Physics Study Material</div>
+    <div class="badge">Launching soon</div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <h1>Launching Soon</h1>
+        <h1 class="lede">Physics notes that actually click.</h1>
+      </div>
+      <div class="lab">
+        <svg id="sim" viewBox="0 0 600 260" role="img" aria-label="Projectile path that changes with the launch angle">
+          <line class="axis" x1="20" y1="230" x2="590" y2="230"/>
+          <path id="arc" class="path" d=""/>
+          <circle id="ball" class="ball" r="9" cx="40" cy="221"/>
+          <text class="t" x="24" y="250">Launch</text>
+          <text class="t" id="rng" x="560" y="250" text-anchor="end"></text>
+        </svg>
+        <div class="ctl">
+          <label for="ang">Launch angle</label>
+          <input id="ang" type="range" min="10" max="80" value="45">
+          <output id="angOut" for="ang">45°</output>
+        </div>
+        <p class="cap">Range is greatest at 45°. Drag the slider and see why.</p>
+      </div>
+    </div>
+
+    <div class="clock" id="clock" aria-live="off" aria-label="Time until launch">
+      <div class="unit"><b id="d">00</b><span>days</span></div>
+      <div class="unit"><b id="h">00</b><span>hours</span></div>
+      <div class="unit"><b id="m">00</b><span>minutes</span></div>
+      <div class="unit"><b id="s">00</b><span>seconds</span></div>
+    </div>
+
+    
+
+    <section class="topics">
+      <h2>What is coming</h2>
+      <ul>
+        <li><strong>Mechanics</strong><em>F = ma</em><small>Motion, forces, energy and momentum.</small></li>
+        <li><strong>Waves and optics</strong><em>v = fλ</em><small>Sound, light, lenses and interference.</small></li>
+        <li><strong>Electricity and magnetism</strong><em>V = IR</em><small>Circuits, fields and induction.</small></li>
+        <li><strong>Heat and thermodynamics</strong><em>Q = mcΔT</em><small>Temperature, gases and the laws of heat.</small></li>
+        <li><strong>Modern physics</strong><em>E = mc²</em><small>Atoms, nuclei and the quantum idea.</small></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer><div class="credits">
+    <p class="credit-main">
+      Hosted, Created and Questions curated by
+      <strong>Vijay Idnani</strong>, IIT Kanpur Alumnus.
+    </p>
+   
+    <p class="credit-sub">
+      &copy; 2026 Vijay Idnani. This material is shared for students' personal study.
+      Please do not sell or redistribute it without permission.
+    </p>
+  </div></footer>
+</div>
+
+<script>
+// Change this date to your real launch date.
+var LAUNCH = new Date('2026-12-01T09:00:00+05:30').getTime();
+
+(function clock(){
+  function pad(n){return String(n).padStart(2,'0');}
+  function tick(){
+    var left = Math.max(0, LAUNCH - Date.now()), s = Math.floor(left/1000);
+    document.getElementById('d').textContent = pad(Math.floor(s/86400));
+    document.getElementById('h').textContent = pad(Math.floor(s%86400/3600));
+    document.getElementById('m').textContent = pad(Math.floor(s%3600/60));
+    document.getElementById('s').textContent = pad(s%60);
+  }
+  tick(); setInterval(tick,1000);
+})();
+
+(function sim(){
+  var arc=document.getElementById('arc'), ball=document.getElementById('ball'),
+      ang=document.getElementById('ang'), out=document.getElementById('angOut'),
+      rng=document.getElementById('rng'), t0=performance.now(), len=0;
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function draw(){
+    var th=ang.value*Math.PI/180, R=520*Math.sin(2*th), H=R*Math.tan(th)/4;
+    arc.setAttribute('d','M40 230 Q '+(40+R/2)+' '+(230-2*H)+' '+(40+R)+' 230');
+    out.textContent=ang.value+'°'; rng.textContent='Range '+Math.round(R/520*100)+'% of maximum';
+    len=arc.getTotalLength(); t0=performance.now();
+    if(still){var p=arc.getPointAtLength(len/2); ball.setAttribute('cx',p.x); ball.setAttribute('cy',p.y-9);}
+  }
+  function frame(now){
+    var f=((now-t0)%2600)/2600, p=arc.getPointAtLength(len*f);
+    ball.setAttribute('cx',p.x); ball.setAttribute('cy',p.y-9);
+    requestAnimationFrame(frame);
+  }
+  ang.addEventListener('input',draw); draw();
+  if(!still) requestAnimationFrame(frame);
+})();
+
+document.getElementById('go').addEventListener('click',function(){
+  var el=document.getElementById('email'), msg=document.getElementById('msg'), v=el.value.trim();
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){
+    msg.textContent='Enter a valid email address, for example name@example.com.'; return;
+  }
+ // try{localStorage.setItem('notify_email',v);}catch(e){}
+ // msg.textContent='Thank you. We will email you when the site opens.'; el.value='';
+});
+</script>
+</body>
+</html>

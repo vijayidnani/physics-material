@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Physics Study Material Hub: Class 9, Class 10, JEE, NEET</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F8FC; --grid:#DDE4F0; --ink:#17236B; --text:#232A45; --muted:#5A6283;
+  --card:#FFFFFF; --hi:#FFE45C; --hi-text:#17236B; --line:#17236B;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F1430; --grid:#1B2350; --ink:#C9D3FF; --text:#E3E7FA; --muted:#98A1C9;
+    --card:#171D45; --hi:#FFE45C; --hi-text:#17236B; --line:#C9D3FF; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F1430; --grid:#1B2350; --ink:#C9D3FF; --text:#E3E7FA; --muted:#98A1C9;
+  --card:#171D45; --hi:#FFE45C; --hi-text:#17236B; --line:#C9D3FF; color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{
+  margin:0; color:var(--text); background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:28px 28px;
+  font-family:"Source Serif 4",Georgia,serif; font-size:18px; line-height:1.65;
+}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+header.top{padding:22px 0;display:flex;justify-content:space-between;align-items:center;font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;color:var(--ink)}
+header.top nav{display:flex;gap:20px;font-weight:500;font-size:16px}
+a{color:inherit}
+header.top a{text-decoration:none}
+header.top a:hover{text-decoration:underline;text-underline-offset:4px}
+:focus-visible{outline:3px solid var(--hi);outline-offset:3px;box-shadow:0 0 0 5px var(--ink)}
+h1{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;color:var(--ink);font-size:clamp(2.4rem,7vw,4.6rem);line-height:1.02;letter-spacing:-.02em;margin:48px 0 20px;max-width:14ch}
+.lead{max-width:52ch;color:var(--muted);font-size:1.15rem;margin:0 0 40px}
+.hl{background:linear-gradient(transparent 55%,var(--hi) 55%);padding:0 .1em}
+
+.shelf{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;margin-bottom:72px}
+.tab{
+  display:flex;flex-direction:column;justify-content:space-between;gap:28px;
+  text-decoration:none;background:var(--card);border:2px solid var(--line);
+  padding:24px;min-height:210px;border-radius:4px 22px 4px 4px;
+  box-shadow:6px 6px 0 var(--line);transition:transform .15s,box-shadow .15s;
+}
+.tab:hover{transform:translate(3px,3px);box-shadow:3px 3px 0 var(--line)}
+.tab h2{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;color:var(--ink);font-size:1.9rem;line-height:1.1;margin:0 0 8px}
+.tab p{margin:0;color:var(--muted);font-size:1rem;line-height:1.5}
+.tab .go{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;color:var(--ink);font-size:1rem}
+.tab .go span{background:var(--hi);color:var(--hi-text);padding:2px 10px;border-radius:99px}
+.c9,.c10{grid-column:span 3}
+.jee,.neet{grid-column:span 3}
+.jee{background:var(--ink);} .jee h2,.jee .go{color:var(--paper)} .jee p{color:var(--paper);opacity:.85}
+.jee{border-color:var(--ink)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .jee{background:#2A3480;border-color:var(--line)} :root:not([data-theme="light"]) .jee h2,:root:not([data-theme="light"]) .jee .go,:root:not([data-theme="light"]) .jee p{color:#fff}}
+
+.about{display:grid;grid-template-columns:200px 1fr;gap:36px;align-items:start;background:var(--card);border-top:2px solid var(--line);padding:36px 0 56px;margin:0 -22px;padding-left:22px;padding-right:22px}
+.about-in{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:180px 1fr;gap:36px;width:100%}
+.about{display:block}
+.photo{width:180px;height:180px;border:2px solid var(--line);border-radius:50% 50% 50% 8px;background:var(--hi);display:grid;place-items:center;font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;font-size:3.4rem;color:var(--hi-text)}
+.about h2{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;color:var(--ink);font-size:2rem;margin:0 0 10px}
+.about p{margin:0 0 14px;max-width:62ch}
+.facts{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-wrap:wrap;gap:10px}
+.facts li{border:2px solid var(--line);border-radius:99px;padding:3px 16px;font-size:.95rem;font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:500;color:var(--ink)}
+footer{padding:24px 0 36px;color:var(--muted);font-size:.95rem;text-align:left}
+@media(max-width:720px){
+  body{font-size:17px}
+  .shelf{grid-template-columns:1fr}
+  .c9,.c10,.jee,.neet{grid-column:auto}
+  .tab{min-height:0}
+  .about-in{grid-template-columns:1fr}
+  .photo{width:120px;height:120px;font-size:2.4rem}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <span>Physics Study Material by Vijay Sir</span>
+    <nav><a href="#materials">Study Materials</a><a href="#about">About me</a></nav>
+  </header>
+
+  <main>
+    <p class="lead">Free study material for school and entrance exams. Pick your class or exam below and start studying.</p>
+
+    <section id="materials" class="shelf" aria-label="Study material by class and exam">
+      <a class="tab jee" href="https://vijayidnani.github.io/physics-material/physics-material/">
+        <div><h2>JEE</h2><p>Physics, concept notes, formula sheets, problem sets.</p></div>
+        <span class="go"><span>Open JEE material</span></span>
+      </a>
+      <a class="tab neet" href="CS.html">
+        <div><h2>NEET</h2><p>Physics, concept notes, formula sheets, problem sets.</p></div>
+        <span class="go"><span>Open NEET material</span></span>
+      </a>
+      <a class="tab c9" href="CS.html">
+        <div><h2>Class 9th</h2><p>Physics, concept notes, formula sheets, problem sets.</p></div>
+        <span class="go"><span>Open Class 9 material</span></span>
+      </a>
+      <a class="tab c10" href="CS.html">
+        <div><h2>Class 10th</h2><p>Board exam notes, Physics, concept notes, formula sheets, problem sets.</p></div>
+        <span class="go"><span>Open Class 10 material</span></span>
+      </a>
+      
+    </section>
+  </main>
+</div>
+<br>
+<br>
+<br><br><br>
+
+<section id="about" class="about">
+  <div class="about-in">
+    <div class="photo" aria-hidden="true">VI</div>
+    <div>
+      <h2>Hi, I’m Vijay Idnani </h2>
+      <p>I’m a Physics Educator for JEE ADVANCED. I started this repository to keep the notes and practice material I use in one place, so students can find what they need without hunting for it.</p>
+      <p>Everything here is organised by class and exam. If you find a mistake or want a topic added, write to me at <a href="mailto:you@example.com">vijayidnani14@gmail.com</a>.</p>
+      <ul class="facts">
+        <li>Class 9 and 10</li>
+        <li>JEE</li>
+        <li>NEET</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><footer><div class="credits">
+    <p class="credit-main">
+      Hosted, Created and Questions curated by
+      <strong>Vijay Idnani</strong>, IIT Kanpur Alumnus.
+    </p>
+   
+    <p class="credit-sub">
+      &copy; 2026 Vijay Idnani. This material is shared for students' personal study.
+      Please do not sell or redistribute it without permission.
+    </p>
+  </div></footer></div>
+</body>
+</html>
