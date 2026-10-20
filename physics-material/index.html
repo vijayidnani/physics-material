@@ -146,7 +146,7 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);color:v
       rows.forEach(function(c){
         n++;var any=(c.main&&c.main.length)||(c.adv&&c.adv.length);
         var nw=isNew(c);html+='<div class="row'+(any?'':' none')+(nw?' fresh':'')+'"><div class="name">'+esc(c.title)+(nw?'<span class="new">New</span>':'')+'</div>'+
-        '<div class="set"><small>JEE Main</small>'+chips(c,"main",5,"m")+'</div>'+
+        '<div class="set"><small>JEE Main</small>'+chips(c,"main",4,"m")+'</div>'+
         '<div class="set"><small>JEE Adv.</small>'+chips(c,"adv",2,"a")+'</div></div>';
       });
       html+='</section>';
