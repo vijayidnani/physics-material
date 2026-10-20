@@ -27,13 +27,13 @@ window.SITE = {
 };
 
 window.CHAPTERS = [
-  { slug: "units-and-measurements", title: "Units and Measurements", group: "Mechanics", main: [1,2,3,4], adv: [1,2], mainKey: [1,2,3,4], advKey: [1,2], added: "2026-08-01" },
-  { slug: "kinematics",             title: "Kinematics",             group: "Mechanics", main: [1,2,3,4], adv: [1],   mainKey: [1,2],     advKey: [],    added: "2026-09-10" },
-  { slug: "laws-of-motion",         title: "Laws of Motion",         group: "Mechanics", main: [1,2],     adv: [],    mainKey: [1],       advKey: [],    added: "2026-10-14" },
-  { slug: "rotational-motion",      title: "Rotational Motion",      group: "Mechanics", main: [],        adv: [],    added: "2026-10-18" },
-  { slug: "thermodynamics",         title: "Thermodynamics",         group: "Heat and Thermodynamics", main: [1], adv: [], mainKey: [1], added: "2026-10-05" },
-  { slug: "electrostatics",         title: "Electrostatics",         group: "Electricity and Magnetism", main: [1,2,3], adv: [1], mainKey: [1,2,3], advKey: [1], added: "2026-10-20" },
-  { slug: "current-electricity",    title: "Current Electricity",    group: "Electricity and Magnetism", main: [], adv: [], added: "2026-10-20" },
-  { slug: "ray-optics",             title: "Ray Optics",             group: "Optics", main: [], adv: [] },
-  { slug: "modern-physics",         title: "Modern Physics",         group: "Modern Physics", main: [], adv: [] }
+  //{ slug: "units-and-measurements", title: "Units and Measurements", group: "Mechanics", main: [1,2,3,4], adv: [1,2], mainKey: [1,2,3,4], advKey: [1,2], added: "2026-08-01" },
+  //{ slug: "kinematics",             title: "Kinematics",             group: "Mechanics", main: [1,2,3,4], adv: [1],   mainKey: [1,2],     advKey: [],    added: "2026-09-10" },
+  { slug: "laws-of-motion",         title: "Laws of Motion",         group: "Mechanics", main: [1,2,3,4],     adv: [],    mainKey: [],       advKey: [],    added: "2026-10-21" },
+  //{ slug: "rotational-motion",      title: "Rotational Motion",      group: "Mechanics", main: [],        adv: [],    added: "2026-10-18" },
+  //{ slug: "thermodynamics",         title: "Thermodynamics",         group: "Heat and Thermodynamics", main: [1], adv: [], mainKey: [1], added: "2026-10-05" },
+  //{ slug: "electrostatics",         title: "Electrostatics",         group: "Electricity and Magnetism", main: [1,2,3], adv: [1], mainKey: [1,2,3], advKey: [1], added: "2026-10-20" },
+  //{ slug: "current-electricity",    title: "Current Electricity",    group: "Electricity and Magnetism", main: [], adv: [], added: "2026-10-20" },
+  //{ slug: "ray-optics",             title: "Ray Optics",             group: "Optics", main: [], adv: [] },
+  //{ slug: "modern-physics",         title: "Modern Physics",         group: "Modern Physics", main: [], adv: [] }
 ];
