@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Physics for JEE – Study Material</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#f4f7f9; --ink:#10253a; --muted:#5b6f82; --grid:#dde6ed; --row:#ffffff;
+  --main:#0b6e6e; --main-bg:#d9f0ee; --adv:#5b2fc4; --adv-bg:#e8e0fb; --line:#cfd9e2;
+}
+@media (prefers-color-scheme:dark){
+  :root{--paper:#0d1b2a;--ink:#e6eef5;--muted:#93a8bb;--grid:#16293c;--row:#13263a;
+  --main:#5fd3c8;--main-bg:#0f3a3d;--adv:#b9a2ff;--adv-bg:#2b2150;--line:#27405a}
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:1rem}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 "IBM Plex Sans",system-ui,sans-serif;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:28px 28px}
+.wrap{max-width:980px;margin:0 auto;padding:2.5rem 1.25rem 4rem}
+h1,h2{font-family:"Bricolage Grotesque","IBM Plex Sans",sans-serif;margin:0;line-height:1.05}
+h1{font-size:clamp(2.4rem,7vw,4.2rem);font-weight:800;letter-spacing:-.02em}
+.sub{margin:.9rem 0 0;color:var(--muted);max-width:52ch}
+.sub b{color:var(--ink);font-weight:600}
+.join{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem}
+.join a{display:inline-block;padding:.55rem 1rem;border-radius:6px;font-weight:600;font-size:.95rem;text-decoration:none;color:#fff}
+.join a.wa{background:#12803c}.join a.tg{background:#1c6fb8}
+.join a:hover{filter:brightness(1.12)}.join a:focus-visible{outline:3px solid var(--adv);outline-offset:2px}
+.legend{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;margin:1.6rem 0 1rem;font-size:.92rem;color:var(--muted)}
+.legend span b{color:var(--ink)}
+.tools{display:flex;flex-wrap:wrap;gap:.6rem;margin:1rem 0 .5rem}
+.tools input{flex:1 1 220px;padding:.7rem .9rem;font:inherit;color:var(--ink);background:var(--row);border:1.5px solid var(--line);border-radius:6px}
+.tools input:focus-visible,.tab:focus-visible,.chip:focus-visible{outline:3px solid var(--adv);outline-offset:2px}
+.tabs{display:flex;flex-wrap:wrap;gap:.4rem}
+.tab{font:inherit;font-size:.9rem;padding:.45rem .8rem;background:transparent;color:var(--ink);border:1.5px solid var(--line);border-radius:999px;cursor:pointer}
+.tab[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.group{margin-top:2.2rem}
+.group h2{font-size:1.5rem;padding-bottom:.5rem;border-bottom:2px solid var(--ink);margin-bottom:.6rem}
+.row{display:grid;grid-template-columns:minmax(10rem,1fr) auto auto;gap:.6rem 1.6rem;align-items:center;background:var(--row);
+  border:1px solid var(--line);border-left:5px solid var(--main);padding:.8rem 1rem;margin-bottom:.5rem;border-radius:4px}
+.row.none{border-left-color:var(--line)}
+.name{font-weight:600;font-size:1.05rem;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.new{font-size:.78rem;font-weight:600;background:#f5b700;color:#2b2100;padding:.1rem .5rem;border-radius:999px}
+.row.fresh{border-left-color:#f5b700}
+.pair{display:inline-flex}
+.pair .chip:first-child:not(:last-child){border-top-right-radius:0;border-bottom-right-radius:0}
+.chip.key{min-width:0;font-size:.76rem;font-weight:500;border-top-left-radius:0;border-bottom-left-radius:0;border-left:0;background:transparent}
+.chip.m+.chip.key{color:var(--main);border-color:var(--main)}
+.chip.a+.chip.key{color:var(--adv);border-color:var(--adv)}
+a.chip.key:hover{background:var(--ink)!important;color:var(--paper)!important;border-color:var(--ink)!important}
+.set{flex-wrap:wrap}
+.set{display:flex;align-items:center;gap:.35rem}
+.set small{font-size:.78rem;color:var(--muted);width:4.6rem}
+.chip{min-width:2.5rem;text-align:center;padding:.3rem .5rem;font-size:.88rem;font-weight:600;border-radius:5px;text-decoration:none;border:1.5px solid transparent}
+.chip.m{background:var(--main-bg);color:var(--main);border-color:var(--main)}
+.chip.a{background:var(--adv-bg);color:var(--adv);border-color:var(--adv)}
+a.chip:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip.off{color:var(--muted);border:1.5px dashed var(--line);background:transparent;cursor:not-allowed;font-weight:400}
+.empty{padding:2rem 0;color:var(--muted)}
+footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
+@media(max-width:720px){.row{grid-template-columns:1fr}.set small{width:4.6rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1 id="title">Physics for JEE</h1>
+    <p class="sub" id="who"></p>
+    <div class="join" id="join"></div>
+    <div class="legend">
+      <span><b>JEE Main</b> L1 to L4: from concept builders to exam-level problems</span>
+      <span><b>JEE Advanced</b> L1 to L2: multi-concept and advanced problems</span>
+    </div>
+  </header>
+  <div class="tools">
+    <input id="q" type="search" placeholder="Search a chapter, e.g. Rotational" aria-label="Search chapters">
+  </div>
+  <div class="tabs" id="tabs" role="group" aria-label="Filter by topic"></div>
+  <main id="list" aria-live="polite"></main>
+  <footer>Tap a level to download its question PDF. Tap key beside it for the answers. Greyed levels are being prepared and will appear here once uploaded.</footer>
+</div>
+<script src="data/chapters.js"></script>
+<script>
+(function(){
+  var S=window.SITE||{}, C=window.CHAPTERS||[], active="All";
+  document.getElementById("title").textContent=S.title||"Study Material";
+  document.title=(S.title||"Study Material")+" – "+(S.teacher||"");
+  var j=document.getElementById("join"),jh="";
+  if(S.whatsapp)jh+='<a class="wa" href="'+esc(S.whatsapp)+'" target="_blank" rel="noopener">Join WhatsApp group</a>';
+  if(S.telegram)jh+='<a class="tg" href="'+esc(S.telegram)+'" target="_blank" rel="noopener">Join Telegram channel</a>';
+  j.innerHTML=jh;if(!jh)j.remove();
+  function isNew(c){if(!c.added)return false;var d=(Date.now()-new Date(c.added+"T00:00:00").getTime())/864e5;return d>=0&&d<=(S.newDays||30)}
+  document.getElementById("who").innerHTML="By <b>"+esc(S.teacher||"")+"</b>. "+esc(S.role||"");
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+  function chips(c,type,count,cls){
+    var have=c[type]||[],keys=c[type+"Key"]||[],out="",nm=type==="main"?"JEE Main":"JEE Advanced";
+    for(var i=1;i<=count;i++){
+      if(have.indexOf(i)>-1){
+        var b="pdfs/"+c.slug+"/"+c.slug+"-"+type+"-L"+i, f=c.slug+"-"+type+"-L"+i;
+        out+='<span class="pair"><a class="chip '+cls+'" href="'+b+'.pdf" download="'+f+'.pdf" aria-label="Download '+esc(c.title)+' '+nm+' level '+i+'">L'+i+'</a>';
+        if(keys.indexOf(i)>-1)out+='<a class="chip key" href="'+b+'-key.pdf" download="'+f+'-key.pdf" aria-label="Download answer key for '+esc(c.title)+' '+nm+' level '+i+'">key</a>';
+        out+='</span>';
+      } else out+='<span class="chip off" title="Coming soon" aria-label="Level '+i+' coming soon">L'+i+'</span>';
+    }
+    return out;
+  }
+  var groups=["All"].concat(C.map(function(c){return c.group}).filter(function(g,i,a){return a.indexOf(g)===i}));
+  var tabs=document.getElementById("tabs");
+  groups.forEach(function(g){
+    var b=document.createElement("button");b.className="tab";b.textContent=g;
+    b.setAttribute("aria-pressed",g===active);
+    b.onclick=function(){active=g;[].forEach.call(tabs.children,function(t){t.setAttribute("aria-pressed",t===b)});render()};
+    tabs.appendChild(b);
+  });
+  function render(){
+    var q=document.getElementById("q").value.trim().toLowerCase(), html="", n=0;
+    groups.slice(1).forEach(function(g){
+      if(active!=="All"&&active!==g)return;
+      var rows=C.filter(function(c){return c.group===g&&c.title.toLowerCase().indexOf(q)>-1});
+      if(!rows.length)return;
+      html+='<section class="group"><h2>'+esc(g)+'</h2>';
+      rows.forEach(function(c){
+        n++;var any=(c.main&&c.main.length)||(c.adv&&c.adv.length);
+        var nw=isNew(c);html+='<div class="row'+(any?'':' none')+(nw?' fresh':'')+'"><div class="name">'+esc(c.title)+(nw?'<span class="new">New</span>':'')+'</div>'+
+        '<div class="set"><small>JEE Main</small>'+chips(c,"main",4,"m")+'</div>'+
+        '<div class="set"><small>JEE Adv.</small>'+chips(c,"adv",2,"a")+'</div></div>';
+      });
+      html+='</section>';
+    });
+    document.getElementById("list").innerHTML=n?html:'<p class="empty">No chapter matches your search. Clear the search box or pick another topic.</p>';
+  }
+  document.getElementById("q").oninput=render;
+  render();
+})();
+</script>
+</body>
+</html>
