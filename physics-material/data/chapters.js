@@ -28,7 +28,7 @@ window.SITE = {
 
 window.CHAPTERS = [
   //{ slug: "units-and-measurements", title: "Units and Measurements", group: "Mechanics", main: [1,2,3,4], adv: [1,2], mainKey: [1,2,3,4], advKey: [1,2], added: "2026-08-01" },
-  //{ slug: "kinematics",             title: "Kinematics",             group: "Mechanics", main: [1,2,3,4], adv: [1],   mainKey: [1,2],     advKey: [],    added: "2026-09-10" },
+  { slug: "kinematics",             title: "Kinematics",             group: "Mechanics", main: [1,2,3,4], adv: [],   mainKey: [1,2,3,4],     advKey: [],    added: "2026-10-22" },
   { slug: "laws-of-motion",         title: "Laws of Motion",         group: "Mechanics", main: [1,2,3,4],     adv: [],    mainKey: [],       advKey: [],    added: "2026-10-21" },
   //{ slug: "rotational-motion",      title: "Rotational Motion",      group: "Mechanics", main: [],        adv: [],    added: "2026-10-18" },
   //{ slug: "thermodynamics",         title: "Thermodynamics",         group: "Heat and Thermodynamics", main: [1], adv: [], mainKey: [1], added: "2026-10-05" },
