@@ -38,4 +38,25 @@ window.CHAPTERS = [
   //{ slug: "current-electricity",    title: "Current Electricity",    group: "Electricity and Magnetism", main: [], adv: [], added: "2026-10-20" },
   //{ slug: "ray-optics",             title: "Ray Optics",             group: "Optics", main: [], adv: [] },
   //{ slug: "modern-physics",         title: "Modern Physics",         group: "Modern Physics", main: [], adv: [] }
+];    
+// ---------- PRACTICE SHEETS ----------
+// chapterSheet / chapterKey : true if the chapter-wise sheet / its key is uploaded
+// topics: one line per topic.  key: true if a key is uploaded.
+// ready: false shows "Coming soon" for a topic you have planned but not uploaded.
+// added: "YYYY-MM-DD" drives the New badge.
+window.PRACTICE = [
+  {
+    slug: "kinematics", title: "Kinematics", chapterSheet: true, chapterKey: true, added: "2026-10-20",
+    topics: [
+      { slug: "kinematics-projectile-motion", title: "Projectile Motion", key: true,  added: "2026-10-20" },
+      { slug: "kinematics-relative-motion",   title: "Relative Motion",   key: false, added: "2026-10-12" },
+      { slug: "kinematics-graphs",            title: "Motion Graphs",     ready: false }
+    ]
+  },
+  {
+    slug: "laws-of-motion", title: "Laws of Motion", chapterSheet: false,
+    topics: [
+      { slug: "laws-of-motion-friction", title: "Friction", key: true, added: "2026-09-01" }
+    ]
+  }
 ];
