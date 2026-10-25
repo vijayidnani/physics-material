@@ -31,7 +31,7 @@ window.CHAPTERS = [
   { slug: "kinematics",             title: "Kinematics",             group: "Mechanics", main: [1,2,3,4], adv: [],   mainKey: [1,2,3,4],     advKey: [],    added: "2026-10-22" },
   { slug: "laws-of-motion",         title: "Laws of Motion",         group: "Mechanics", main: [1,2,3,4],     adv: [],    mainKey: [],       advKey: [],    added: "2026-10-21" },
     { slug: "circular",         title: "Circular Motion",         group: "Mechanics", main: [1,2,3],     adv: [],    mainKey: [1,2,3],       advKey: [],    added: "2026-10-21" },
-      { slug: "graviation",         title: "Gravitation",         group: "Mechanics", main: [1,2,3],     adv: [],    mainKey: [1,2,3],       advKey: [],    added: "2026-10-21" },
+      { slug: "gravitation",         title: "Gravitation",         group: "Mechanics", main: [1,2,3],     adv: [],    mainKey: [1,2,3],       advKey: [],    added: "2026-10-21" },
 
 
   //{ slug: "rotational-motion",      title: "Rotational Motion",      group: "Mechanics", main: [],        adv: [],    added: "2026-10-18" },
