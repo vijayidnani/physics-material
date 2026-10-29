@@ -1,0 +1,134 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[a4paper,top=3.6cm,bottom=2.4cm,left=1.8cm,right=1.8cm,headheight=44pt,headsep=14pt]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{array,tabularx,longtable,booktabs}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{needspace}
+\usepackage{multicol}
+\setlength{\columnsep}{0.9cm}\setlength{\columnseprule}{0.4pt}
+\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{3em}
+\definecolor{schoolblue}{RGB}{20,50,120}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.8pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\fancyhead[C]{\textcolor{schoolblue}{\Large\bfseries SAGAR PUBLIC SCHOOL}\\[2pt]
+  \small\textbf{Integrated Programme}\ \ $\mid$\ \ \textbf{Topic: Electrostatics -- Miscellaneous \& PYQs}}
+\fancyfoot[L]{\small Sagar Public School -- Integrated Programme}
+\fancyfoot[C]{\small Page \thepage\ of \pageref{LastPage}}
+\fancyfoot[R]{\small Practice Sheet 4\ $\bullet$\ Electrostatics}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0.8pt}\renewcommand{\footrulewidth}{0.5pt}%
+  \fancyhead[C]{\textcolor{schoolblue}{\Large\bfseries SAGAR PUBLIC SCHOOL}\\[2pt]\small\textbf{Integrated Programme}\ \ $\mid$\ \ \textbf{Topic: Electrostatics -- Miscellaneous \& PYQs}}%
+  \fancyfoot[L]{\small Sagar Public School -- Integrated Programme}\fancyfoot[C]{\small Page \thepage\ of \pageref{LastPage}}\fancyfoot[R]{\small Practice Sheet 4\ $\bullet$\ Electrostatics}}
+\newcounter{qn}
+\newcommand{\Q}{\needspace{5\baselineskip}\refstepcounter{qn}\par\medskip\noindent\textbf{Q.\theqn}\hspace{0.5em}}
+\newcommand{\Qf}{\needspace{7.5cm}\refstepcounter{qn}\par\medskip\noindent\textbf{Q.\theqn}\hspace{0.5em}}
+\newcommand{\lab}[1]{(\ifcase#1\or A\or B\or C\or D\fi)}
+\newcommand{\optsfour}[4]{\par\smallskip\noindent\begin{tabularx}{\linewidth}{@{}*{4}{>{\raggedright\arraybackslash}X}@{}}
+  \lab1\ #1 & \lab2\ #2 & \lab3\ #3 & \lab4\ #4\end{tabularx}\par}
+\newcommand{\optstwo}[4]{\par\smallskip\noindent\begin{tabularx}{\linewidth}{@{}*{2}{>{\raggedright\arraybackslash}X}@{}}
+  \lab1\ #1 & \lab2\ #2 \\[4pt] \lab3\ #3 & \lab4\ #4\end{tabularx}\par}
+\newcommand{\optsv}[4]{\par\smallskip\begin{list}{}{\setlength{\leftmargin}{1.7em}\setlength{\itemsep}{1pt}\setlength{\topsep}{0pt}\setlength{\parsep}{0pt}}
+  \item[\lab1] #1 \item[\lab2] #2 \item[\lab3] #3 \item[\lab4] #4\end{list}}
+\newcommand{\fig}[1]{\par\smallskip\begin{center}\includegraphics[width=\linewidth,height=4.6cm,keepaspectratio]{figs/#1.png}\end{center}\par}
+\newcommand{\etag}[1]{\ {\footnotesize\textit{[#1]}}}
+\begin{document}
+\begin{center}
+{\Large\bfseries PRACTICE SHEET 4}\\[3pt]
+{\normalsize\bfseries Miscellaneous and PYQs covering the entire chapter}
+\end{center}
+\vspace{2pt}
+\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
+\textbf{Time Allowed: 60 Mins}\hfill \textbf{Total Questions: 20}\\[5pt]
+Name: \underline{\hspace{6.3cm}}\hfill Class/Sec: \underline{\hspace{2.2cm}}\hfill Date: \underline{\hspace{2.6cm}}\\[5pt]
+{\small\textbf{Instructions:} Attempt all questions. Each question carries one correct option unless marked \emph{one or more than one option is correct}. Questions without options are numerical-value type: write the answer in the blank. The tag after each question shows its source examination. A self-assessment page follows; the answer key is provided as a separate sheet.}}}
+\bigskip
+\begin{multicols}{2}
+\Qf A point charge $q=1\,\mu$C is located at a distance $2$ cm from one end of a thin insulating wire of length $10$ cm having a charge $Q=24\,\mu$C, distributed uniformly along its length, as shown in figure. Force between $q$ and wire is \underline{\hspace{1.5cm}} N. (Use: $\dfrac{1}{4\pi\epsilon_0}=9\times10^{9}\ \mathrm{N\cdot m^2/C^2}$)\etag{JEE Main 2026, 24 Jan, Eve.}
+\fig{f247}
+
+\Q A point charge $q_1=4q_0$ is placed at origin. Another point charge $q_2=-q_0$ is placed at $x=12$ cm. Charge of proton is $q_0$. The proton is placed on $x$ axis so that the electrostatic force on the proton is zero. In this situation, the position of the proton from the origin is \underline{\hspace{1.5cm}} cm.\etag{JEE Main 2023, 29 Jan, Mor.}
+
+\Q An infinite number of point charges, each carrying $1\,\mu$C charge, are placed along the $y$-axis at $y=1$ m, $2$ m, $4$ m, $8$ m $\ldots$ The total force on a $1$ C point charge, placed at the origin, is $x\times10^{3}$ N. The value of $x$, to the nearest integer, is \underline{\hspace{1.5cm}}. [Take $\dfrac{1}{4\pi\epsilon_0}=9\times10^{9}\ \mathrm{Nm^2/C^2}$]\etag{JEE Main 2021, 18 Mar, Eve.}
+
+\Q Two identical charged spheres are suspended by strings of equal lengths. The strings make an angle of $37^\circ$ with each other. When suspended in a liquid of density $0.7\ \mathrm{g/cm^3}$, the angle remains same. If density of material of the sphere is $1.4\ \mathrm{g/cm^3}$, the dielectric constant of the liquid is \underline{\hspace{1.5cm}}. $\left(\tan37^\circ=\dfrac34\right)$\etag{JEE Main 2024, 30 Jan, Eve.}
+
+\Qf A long cylindrical volume contains a uniformly distributed charge of density $\rho\ \mathrm{C\,m^{-3}}$. The electric field inside the cylindrical volume at a distance $x=\dfrac{2\epsilon_0}{\rho}$ m from its axis is \underline{\hspace{1.5cm}} $\mathrm{V\,m^{-1}}$.\etag{JEE Main 2022, 27 Jul, Mor.}
+\fig{f283}
+
+\Q An infinite plane sheet of charge having uniform surface charge density $+\sigma_s\ \mathrm{C/m^2}$ is placed on $x$-$y$ plane. Another infinitely long line charge having uniform linear charge density $+\lambda_e\ \mathrm{C/m}$ is placed at $z=4$ m plane and parallel to $y$-axis. If the magnitude values $|\sigma_s|=2|\lambda_e|$ then at point $(0,0,2)$, the ratio of magnitudes of electric field values due to sheet charge to that of line charge is $\pi\sqrt n:1$. The value of $n$ is \underline{\hspace{1.5cm}}.\etag{JEE Main 2024, 4 Apr, Mor.}
+
+\Q The electric field in a region is given by $\vec E=(2\hat i+4\hat j+6\hat k)\times10^{3}$ N/C. The flux of the field through a rectangular surface parallel to $x$--$z$ plane is $6.0\ \mathrm{Nm^2C^{-1}}$. The area of the surface is \underline{\hspace{1.5cm}} $\mathrm{cm^2}$.\etag{JEE Main 2025, 7 Apr, Eve.}
+
+\Qf If the net electric field at point P along $Y$ axis is zero, then the ratio of $\left|\dfrac{q_2}{q_3}\right|$ is $\dfrac{8}{5\sqrt x}$, where $x=$ \underline{\hspace{1.5cm}}.\etag{JEE Main 2024, 8 Apr, Eve.}
+\fig{f254}
+
+\Q $64$ identical drops each charged upto potential of $10$ mV are combined to form a bigger drop. The potential of the bigger drop will be \underline{\hspace{1.5cm}} mV.\etag{JEE Main 2023, 12 Apr, Mor.}
+
+\Q For a charged spherical ball, electrostatic potential inside the ball varies with $r$ as $V=2ar^2+b$. Here, $a$ and $b$ are constant and $r$ is the distance from the center. The volume charge density inside the ball is $-\lambda a\varepsilon$. The value of $\lambda$ is \underline{\hspace{1.5cm}}. ($\varepsilon$ = permittivity of the medium)\etag{JEE Main 2023, 29 Jan, Eve.}
+
+\Qf The distance between charges $+q$ and $-q$ is $2l$ and between $+2q$ and $-2q$ is $4l$. The electrostatic potential at point $P$ at a distance $r$ from center $O$ is $-\alpha\left[\dfrac{ql}{r^2}\right]\times10^{9}$ V, where the value of $\alpha$ is \underline{\hspace{1.5cm}}. (Use $\dfrac{1}{4\pi\epsilon_0}=9\times10^{9}\ \mathrm{Nm^2C^{-2}}$)\etag{JEE Main 2024, 31 Jan, Eve.}
+\fig{f261}
+
+\Q $27$ similar drops of mercury are maintained at $10$ V each. All these spherical drops combine into a single big drop. The potential energy of the bigger drop is \underline{\hspace{1.5cm}} times that of a smaller drop.\etag{JEE Main 2021, 26 Feb, Eve.}
+
+\Q An electric dipole of dipole moment $6\times10^{-6}$ Cm is placed in uniform electric field of magnitude $10^{6}$ V/m. Initially, the dipole moment is parallel to electric field. The work that needs to be done on the dipole to make its dipole moment opposite to the field, will be \underline{\hspace{1.5cm}} J.\etag{JEE Main 2025, 28 Jan, Eve.}
+
+\Q Two charges of $-4\,\mu$C and $+4\,\mu$C are placed at the points A$(1,0,4)$ m and B$(2,-1,5)$ m located in an electric field $\vec E=0.20\,\hat i$ V/cm. The magnitude of the torque acting on the dipole is $8\sqrt\alpha\times10^{-5}$ Nm, where $\alpha=$ \underline{\hspace{1.5cm}}.\etag{JEE Main 2024, 27 Jan, Eve.}
+
+\Q A particle of mass $1$ mg and charge $q$ is lying at the mid-point of two stationary particles kept at a distance $2$ m when each is carrying same charge $q$. If the free charged particle is displaced from its equilibrium position through distance $x$ ($x\ll1$ m), the particle executes SHM. Its angular frequency of oscillation will be \underline{\hspace{1.5cm}} $\times10^{5}$ rad/s if $q^2=10\ \mathrm{C^2}$.\etag{JEE Main 2021, 25 Jul, Mor.}
+
+\Q \textit{(One or more than one option is correct)} A uniformly charged solid sphere of radius $R$ has potential $V_0$ (measured with respect to $\infty$) on its surface. For this sphere the equipotential surfaces with potentials $\dfrac{3V_0}{2}$, $\dfrac{5V_0}{4}$, $\dfrac{3V_0}{4}$ and $\dfrac{V_0}{4}$ have radius $R_1$, $R_2$, $R_3$ and $R_4$ respectively. Then\etag{JEE Main 2015 (Offline)}
+\optsv{$R_1=0$ and $R_2<(R_4-R_3)$}{$2R<R_4$}{$R_1=0$ and $R_2>(R_4-R_3)$}{$R_1\neq0$ and $(R_2-R_1)>(R_4-R_3)$}
+
+\Q Two identical conducting spheres with negligible volume have $2.1$ nC and $-0.1$ nC charges, respectively. They are brought into contact and then separated by a distance of $0.5$ m. The electrostatic force acting between the spheres is \underline{\hspace{1.5cm}} $\times10^{-9}$ N. [Given: $4\pi\epsilon_0=\dfrac{1}{9\times10^{9}}$ SI unit]\etag{JEE Main 2021, 25 Feb, Eve.}
+
+\Q Three concentric spherical metallic shells X, Y and Z of radius $a$, $b$ and $c$ respectively $[a<b<c]$ have surface charge densities $\sigma$, $-\sigma$ and $\sigma$ respectively. The shells X and Z are at same potential. If the radii of X \& Y are $2$ cm and $3$ cm, respectively. The radius of shell Z is \underline{\hspace{1.5cm}} cm.\etag{JEE Main 2023, 10 Apr, Mor.}
+
+\Qf A point charge of $+12\,\mu$C is at a distance $6$ cm vertically above the centre of a square of side $12$ cm as shown in figure. The magnitude of the electric flux through the square will be \underline{\hspace{1.5cm}} $\times10^{3}\ \mathrm{Nm^2/C}$.\etag{JEE Main 2021, 24 Feb, Eve.}
+\fig{f298}
+
+\Qf An electric field $\vec E=(2x\,\hat i)\ \mathrm{NC^{-1}}$ exists in space. A cube of side $2$ m is placed in the space as per figure given below. The electric flux through the cube is \underline{\hspace{1.5cm}} $\mathrm{Nm^2/C}$.\etag{JEE Main 2024, 9 Apr, Eve.}
+\fig{f252}
+\end{multicols}
+
+\clearpage
+\begin{center}{\Large\bfseries SELF-ASSESSMENT -- PRACTICE SHEET 4}\end{center}
+\medskip
+\renewcommand{\arraystretch}{1.9}
+\noindent\begin{tabularx}{\linewidth}{|X|X|}\hline
+\textbf{Time Allowed:} 60 Mins & \textbf{Time Taken:} \underline{\hspace{2.4cm}} Mins\\ \hline
+\textbf{Total Questions:} 20 & \textbf{Questions Attempted:} \underline{\hspace{2cm}}\\ \hline
+\textbf{Correct:} \underline{\hspace{2.6cm}} & \textbf{Incorrect:} \underline{\hspace{2.6cm}}\\ \hline
+\textbf{Unattempted:} \underline{\hspace{2.2cm}} & \textbf{Accuracy:} \underline{\hspace{1.6cm}}\,\% \ {\footnotesize(Correct$\,/\,$Attempted$\,\times100$)}\\ \hline
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+\bigskip
+\textbf{Question-wise record} \ {\small(tick one: C = Correct, W = Wrong, S = Skipped)}\par\smallskip
+{\small\renewcommand{\arraystretch}{1.55}
+\noindent\begin{tabularx}{\linewidth}{|*{4}{>{\centering\arraybackslash}X|}}\hline
+\textbf{Q.1}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.2}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.3}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.4}\ $\square$C\ $\square$W\ $\square$S \\ \hline
+\textbf{Q.5}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.6}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.7}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.8}\ $\square$C\ $\square$W\ $\square$S \\ \hline
+\textbf{Q.9}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.10}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.11}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.12}\ $\square$C\ $\square$W\ $\square$S \\ \hline
+\textbf{Q.13}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.14}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.15}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.16}\ $\square$C\ $\square$W\ $\square$S \\ \hline
+\textbf{Q.17}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.18}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.19}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.20}\ $\square$C\ $\square$W\ $\square$S \\ \hline
+\end{tabularx}}
+\bigskip
+\textbf{Reason for mistakes} \ {\small(tick all that apply)}\par\smallskip
+\begin{tabularx}{\linewidth}{@{}XXX@{}}$\square$ Concept not clear & $\square$ Formula forgotten & $\square$ Calculation mistake\\[3pt] $\square$ Misread the question & $\square$ Ran out of time & $\square$ Guess work\end{tabularx}
+\bigskip
+\textbf{Personal Feedback}\par\smallskip
+\textit{What went well:}\par\vspace{2pt}
+\noindent\rule{0pt}{1.35em}\hrulefill\\ \rule{0pt}{1.35em}\hrulefill\\[4pt]
+\textit{Topics / questions I need to revise:}\par\vspace{2pt}
+\noindent\rule{0pt}{1.35em}\hrulefill\\ \rule{0pt}{1.35em}\hrulefill\\[4pt]
+\textit{My action plan before the next sheet:}\par\vspace{2pt}
+\noindent\rule{0pt}{1.35em}\hrulefill\\ \rule{0pt}{1.35em}\hrulefill\\[8pt]
+\textit{Teacher's remarks:}\par\vspace{2pt}
+\noindent\rule{0pt}{1.35em}\hrulefill\\ \rule{0pt}{1.35em}\hrulefill\\[14pt]
+Student's signature: \underline{\hspace{4cm}}\hfill Teacher's signature: \underline{\hspace{4cm}}
+\end{document}

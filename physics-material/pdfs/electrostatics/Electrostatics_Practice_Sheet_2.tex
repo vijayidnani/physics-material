@@ -1,0 +1,147 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[a4paper,top=3.6cm,bottom=2.4cm,left=1.8cm,right=1.8cm,headheight=44pt,headsep=14pt]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{array,tabularx,longtable,booktabs}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{needspace}
+\usepackage{multicol}
+\setlength{\columnsep}{0.9cm}\setlength{\columnseprule}{0.4pt}
+\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{3em}
+\definecolor{schoolblue}{RGB}{20,50,120}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.8pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\fancyhead[C]{\textcolor{schoolblue}{\Large\bfseries SAGAR PUBLIC SCHOOL}\\[2pt]
+  \small\textbf{Integrated Programme}\ \ $\mid$\ \ \textbf{Topic: Electrostatics -- Potential, Potential Energy \& Dipole}}
+\fancyfoot[L]{\small Sagar Public School -- Integrated Programme}
+\fancyfoot[C]{\small Page \thepage\ of \pageref{LastPage}}
+\fancyfoot[R]{\small Practice Sheet 2\ $\bullet$\ Electrostatics}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0.8pt}\renewcommand{\footrulewidth}{0.5pt}%
+  \fancyhead[C]{\textcolor{schoolblue}{\Large\bfseries SAGAR PUBLIC SCHOOL}\\[2pt]\small\textbf{Integrated Programme}\ \ $\mid$\ \ \textbf{Topic: Electrostatics -- Potential, Potential Energy \& Dipole}}%
+  \fancyfoot[L]{\small Sagar Public School -- Integrated Programme}\fancyfoot[C]{\small Page \thepage\ of \pageref{LastPage}}\fancyfoot[R]{\small Practice Sheet 2\ $\bullet$\ Electrostatics}}
+\newcounter{qn}
+\newcommand{\Q}{\needspace{5\baselineskip}\refstepcounter{qn}\par\medskip\noindent\textbf{Q.\theqn}\hspace{0.5em}}
+\newcommand{\Qf}{\needspace{7.5cm}\refstepcounter{qn}\par\medskip\noindent\textbf{Q.\theqn}\hspace{0.5em}}
+\newcommand{\lab}[1]{(\ifcase#1\or A\or B\or C\or D\fi)}
+\newcommand{\optsfour}[4]{\par\smallskip\noindent\begin{tabularx}{\linewidth}{@{}*{4}{>{\raggedright\arraybackslash}X}@{}}
+  \lab1\ #1 & \lab2\ #2 & \lab3\ #3 & \lab4\ #4\end{tabularx}\par}
+\newcommand{\optstwo}[4]{\par\smallskip\noindent\begin{tabularx}{\linewidth}{@{}*{2}{>{\raggedright\arraybackslash}X}@{}}
+  \lab1\ #1 & \lab2\ #2 \\[4pt] \lab3\ #3 & \lab4\ #4\end{tabularx}\par}
+\newcommand{\optsv}[4]{\par\smallskip\begin{list}{}{\setlength{\leftmargin}{1.7em}\setlength{\itemsep}{1pt}\setlength{\topsep}{0pt}\setlength{\parsep}{0pt}}
+  \item[\lab1] #1 \item[\lab2] #2 \item[\lab3] #3 \item[\lab4] #4\end{list}}
+\newcommand{\fig}[1]{\par\smallskip\begin{center}\includegraphics[width=\linewidth,height=4.6cm,keepaspectratio]{figs/#1.png}\end{center}\par}
+\newcommand{\etag}[1]{\ {\footnotesize\textit{[#1]}}}
+\begin{document}
+\begin{center}
+{\Large\bfseries PRACTICE SHEET 2}\\[3pt]
+{\normalsize\bfseries Electric Potential $\bullet$ Electrostatic Potential Energy \& Work $\bullet$ Electric Dipole $\bullet$ Basic Electrostatics / Mixed}
+\end{center}
+\vspace{2pt}
+\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
+\textbf{Time Allowed: 60 Mins}\hfill \textbf{Total Questions: 20}\\[5pt]
+Name: \underline{\hspace{6.3cm}}\hfill Class/Sec: \underline{\hspace{2.2cm}}\hfill Date: \underline{\hspace{2.6cm}}\\[5pt]
+{\small\textbf{Instructions:} Attempt all questions. Each question carries one correct option unless marked \emph{one or more than one option is correct}. Questions without options are numerical-value type: write the answer in the blank. The tag after each question shows its source examination. A self-assessment page follows; the answer key is provided as a separate sheet.}}}
+\bigskip
+\begin{multicols}{2}
+\Q The electrostatic potential on the surface of uniformly charged spherical shell of radius $R=10$ cm is $120$ V. The potential at the centre of shell, at a distance $r=5$ cm from centre, and at a distance $r=15$ cm from the centre of the shell respectively, are:\etag{JEE Main 2025, 3 Apr, Mor.}
+\optstwo{$0$ V, $120$ V, $40$ V}{$120$ V, $120$ V, $80$ V}{$40$ V, $40$ V, $80$ V}{$0$ V, $0$ V, $80$ V}
+
+\Q An electric charge $10^{-6}\,\mu$C is placed at origin $(0,0)$ m of $X$--$Y$ co-ordinate system. Two points P and Q are situated at $(\sqrt3,\sqrt3)$ m and $(\sqrt6,0)$ m respectively. The potential difference between the points P and Q will be:\etag{JEE Main 2024, 27 Jan, Mor.}
+\optsfour{$\sqrt3$ V}{$\sqrt6$ V}{$0$ V}{$3$ V}
+
+\Q If the electric potential at any point $(x,y,z)$ m in space is given by $V=3x^2$ volt. The electric field at the point $(1,0,3)$ m will be:\etag{JEE Main 2022, 29 Jun, Eve.}
+\optsv{$3\ \mathrm{Vm^{-1}}$, directed along positive $x$-axis.}{$3\ \mathrm{Vm^{-1}}$, directed along negative $x$-axis.}{$6\ \mathrm{Vm^{-1}}$, directed along positive $x$-axis.}{$6\ \mathrm{Vm^{-1}}$, directed along negative $x$-axis.}
+
+\Q Concentric metallic hollow spheres of radii $R$ and $4R$ hold charges $Q_1$ and $Q_2$ respectively. Given that surface charge densities of the concentric spheres are equal, the potential difference $V(R)-V(4R)$ is:\etag{JEE Main 2020, 3 Sep, Eve.}
+\optstwo{$\dfrac{3Q_2}{4\pi\epsilon_0R}$}{$\dfrac{3Q_1}{4\pi\epsilon_0R}$}{$\dfrac{3Q_1}{16\pi\epsilon_0R}$}{$\dfrac{Q_2}{4\pi\epsilon_0R}$}
+
+\Q Assume that an electric field $\vec E=30x^2\hat i$ exists in space. Then the potential difference $V_A-V_O$, where $V_O$ is the potential at the origin and $V_A$ the potential at $x=2$ m is:\etag{JEE Main 2014 (Offline)}
+\optsfour{$120$ J/C}{$-120$ J/C}{$-80$ J/C}{$80$ J/C}
+
+\Q Two point charges of $1$ nC and $2$ nC are placed at the two corners of equilateral triangle of side $3$ cm. The work done in bringing a charge of $3$ nC from infinity to the third corner of the triangle is \underline{\hspace{1.2cm}} $\mu$J. $\left(\dfrac{1}{4\pi\epsilon_0}=9\times10^{9}\ \mathrm{N\cdot m^2/C^2}\right)$\etag{JEE Main 2026, 28 Jan, Mor.}
+\optsfour{$3.3$}{$27$}{$2.7$}{$5.4$}
+
+\Qf Three charges $Q$, $+q$ and $+q$ are placed at the vertices of a right-angle isosceles triangle as shown below. The net electrostatic energy of the configuration is zero, if the value of $Q$ is:\etag{JEE Main 2019, 11 Jan, Mor.}
+\fig{f169}
+\optstwo{$\dfrac{-q}{1+\sqrt2}$}{$+q$}{$-2q$}{$\dfrac{-\sqrt2\,q}{\sqrt2+1}$}
+
+\Q Two points $P$ and $Q$ are maintained at the potentials of $10$ V and $-4$ V, respectively. The work done in moving $100$ electrons from $P$ to $Q$ is:\etag{AIEEE 2009}
+\optstwo{$9.60\times10^{-17}$ J}{$-2.24\times10^{-16}$ J}{$2.24\times10^{-16}$ J}{$-9.60\times10^{-17}$ J}
+
+\Q Eight similar drops of mercury are maintained at $12$ V each. All these spherical drops combine into a single big drop. The potential energy of bigger drop will be \underline{\hspace{1.5cm}} $E$. Where $E$ is the potential energy of a single smaller drop.\etag{JEE Main 2022, 30 Jun, Mor.}
+
+\Q The electrostatic potential due to an electric dipole at a distance $r$ varies as:\etag{JEE Main 2024, 30 Jan, Mor.}
+\optstwo{$\dfrac{1}{r^3}$}{$\dfrac1r$}{$\dfrac{1}{r^2}$}{$r$}
+
+\Q The electric field due to a short electric dipole at a large distance $(r)$ from center of dipole on the equatorial plane varies with distance as:\etag{JEE Main 2023, 15 Apr, Mor.}
+\optstwo{$\dfrac{1}{r^2}$}{$\dfrac1r$}{$r$}{$\dfrac{1}{r^3}$}
+
+\Q Two charges each of magnitude $0.01$ C and separated by a distance of $0.4$ mm constitute an electric dipole. If the dipole is placed in an uniform electric field $\vec E$ of $10$ dyne/C making $30^\circ$ angle with $\vec E$, the magnitude of torque acting on dipole is:\etag{JEE Main 2023, 13 Apr, Mor.}
+\optstwo{$4.0\times10^{-10}$ Nm}{$1.5\times10^{-9}$ Nm}{$1.0\times10^{-8}$ Nm}{$2.0\times10^{-10}$ Nm}
+
+\Q An electric dipole is formed by two equal and opposite charges $q$ with separation $d$. The charges have same mass $m$. It is kept in a uniform electric field $E$. If it is slightly rotated from its equilibrium orientation, then its angular frequency $\omega$ is:\etag{JEE Main 2019, 8 Apr, Eve.}
+\optstwo{$\sqrt{\dfrac{qE}{md}}$}{$\sqrt{\dfrac{qE}{2md}}$}{$\sqrt{\dfrac{qE}{-2md}}$}{$\sqrt{\dfrac{2qE}{md}}$}
+
+\Q An electric field of $1000$ V/m is applied to an electric dipole at angle of $45^\circ$. The value of electric dipole moment is $10^{-29}$ C$\cdot$m. What is the potential energy of the electric dipole?\etag{JEE Main 2019, 11 Jan, Eve.}
+\optstwo{$-7\times10^{-27}$ J}{$-9\times10^{-20}$ J}{$-10\times10^{-29}$ J}{$-20\times10^{-18}$ J}
+
+\Q An electric dipole is placed at an angle of $30^\circ$ to a non-uniform electric field. The dipole will experience\etag{AIEEE 2006}
+\optsv{a translation force only in the direction of the field}{a translation force only in a direction normal to the direction of the field}{a torque as well as a translational force}{a torque only}
+
+\Q Three small identical bubbles of water having same charge on each coalesce to form a bigger bubble. Then the ratio of the potentials on one initial bubble and that on the resultant bigger bubble is:\etag{JEE Main 2026, 22 Jan, Eve.}
+\optstwo{$1:3^{2/3}$}{$3^{2/3}:1$}{$1:3^{1/3}$}{$1:2^{2/3}$}
+
+\Q Two identical positive charges $Q$ each are fixed at a distance of $2a$ apart from each other. Another point charge $q_0$ with mass $m$ is placed at midpoint between two fixed charges. For a small displacement along the line joining the fixed charges, the charge $q_0$ executes SHM. The time period of oscillation of charge $q_0$ will be:\etag{JEE Main 2022, 27 Jul, Mor.}
+\optstwo{$\sqrt{\dfrac{4\pi^3\epsilon_0ma^3}{q_0Q}}$}{$\sqrt{\dfrac{q_0Q}{4\pi^3\epsilon_0ma^3}}$}{$\sqrt{\dfrac{2\pi^2\epsilon_0ma^3}{q_0Q}}$}{$\sqrt{\dfrac{8\pi^3\epsilon_0ma^3}{q_0Q}}$}
+
+\Q Two identical charged particles each having a mass $10$ g and charge $2.0\times10^{-7}$ C are placed on a horizontal table with a separation of $L$ between them such that they stay in limiting equilibrium. If the coefficient of friction between each particle and the table is $0.25$, find the value of $L$. [Use $g=10\ \mathrm{ms^{-2}}$]\etag{JEE Main 2022, 24 Jun, Eve.}
+\optsfour{$12$ cm}{$10$ cm}{$8$ cm}{$5$ cm}
+
+\Q In free space, a particle A of charge $1\,\mu$C is held fixed at a point P. Another particle B of the same charge and mass $4\,\mu$g is kept at a distance of $1$ mm from P. If B is released, then its velocity at a distance of $9$ mm from P is: $\left[\text{Take }\dfrac{1}{4\pi\epsilon_0}=9\times10^{9}\ \mathrm{Nm^2C^{-2}}\right]$\etag{JEE Main 2019, 10 Apr, Eve.}
+\optstwo{$1.0$ m/s}{$6.32\times10^{4}$ m/s}{$2.0\times10^{3}$ m/s}{$1.5\times10^{2}$ m/s}
+
+\Q A charged particle $q$ is shot towards another charged particle $Q$ which is fixed, with a speed $v$. It approaches $Q$ upto a closest distance $r$ and then returns. If $q$ were given a speed of $2v$ the closest distance of approach would be\etag{AIEEE 2004}
+\optsfour{$r/2$}{$2r$}{$r$}{$r/4$}
+\end{multicols}
+
+\clearpage
+\begin{center}{\Large\bfseries SELF-ASSESSMENT -- PRACTICE SHEET 2}\end{center}
+\medskip
+\renewcommand{\arraystretch}{1.9}
+\noindent\begin{tabularx}{\linewidth}{|X|X|}\hline
+\textbf{Time Allowed:} 60 Mins & \textbf{Time Taken:} \underline{\hspace{2.4cm}} Mins\\ \hline
+\textbf{Total Questions:} 20 & \textbf{Questions Attempted:} \underline{\hspace{2cm}}\\ \hline
+\textbf{Correct:} \underline{\hspace{2.6cm}} & \textbf{Incorrect:} \underline{\hspace{2.6cm}}\\ \hline
+\textbf{Unattempted:} \underline{\hspace{2.2cm}} & \textbf{Accuracy:} \underline{\hspace{1.6cm}}\,\% \ {\footnotesize(Correct$\,/\,$Attempted$\,\times100$)}\\ \hline
+\end{tabularx}
+\renewcommand{\arraystretch}{1.0}
+\bigskip
+\textbf{Question-wise record} \ {\small(tick one: C = Correct, W = Wrong, S = Skipped)}\par\smallskip
+{\small\renewcommand{\arraystretch}{1.55}
+\noindent\begin{tabularx}{\linewidth}{|*{4}{>{\centering\arraybackslash}X|}}\hline
+\textbf{Q.1}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.2}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.3}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.4}\ $\square$C\ $\square$W\ $\square$S \\ \hline
+\textbf{Q.5}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.6}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.7}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.8}\ $\square$C\ $\square$W\ $\square$S \\ \hline
+\textbf{Q.9}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.10}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.11}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.12}\ $\square$C\ $\square$W\ $\square$S \\ \hline
+\textbf{Q.13}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.14}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.15}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.16}\ $\square$C\ $\square$W\ $\square$S \\ \hline
+\textbf{Q.17}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.18}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.19}\ $\square$C\ $\square$W\ $\square$S & \textbf{Q.20}\ $\square$C\ $\square$W\ $\square$S \\ \hline
+\end{tabularx}}
+\bigskip
+\textbf{Reason for mistakes} \ {\small(tick all that apply)}\par\smallskip
+\begin{tabularx}{\linewidth}{@{}XXX@{}}$\square$ Concept not clear & $\square$ Formula forgotten & $\square$ Calculation mistake\\[3pt] $\square$ Misread the question & $\square$ Ran out of time & $\square$ Guess work\end{tabularx}
+\bigskip
+\textbf{Personal Feedback}\par\smallskip
+\textit{What went well:}\par\vspace{2pt}
+\noindent\rule{0pt}{1.35em}\hrulefill\\ \rule{0pt}{1.35em}\hrulefill\\[4pt]
+\textit{Topics / questions I need to revise:}\par\vspace{2pt}
+\noindent\rule{0pt}{1.35em}\hrulefill\\ \rule{0pt}{1.35em}\hrulefill\\[4pt]
+\textit{My action plan before the next sheet:}\par\vspace{2pt}
+\noindent\rule{0pt}{1.35em}\hrulefill\\ \rule{0pt}{1.35em}\hrulefill\\[8pt]
+\textit{Teacher's remarks:}\par\vspace{2pt}
+\noindent\rule{0pt}{1.35em}\hrulefill\\ \rule{0pt}{1.35em}\hrulefill\\[14pt]
+Student's signature: \underline{\hspace{4cm}}\hfill Teacher's signature: \underline{\hspace{4cm}}
+\end{document}
