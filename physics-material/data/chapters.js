@@ -35,7 +35,7 @@ window.CHAPTERS = [
   { slug: "circular",         title: "Circular Motion",         group: "Mechanics", main: [1,2,3],     adv: [],    mainKey: [1,2,3],       advKey: [],    added: "2026-10-21" },
       { slug: "gravitation",         title: "Gravitation",         group: "Mechanics", main: [1,2,3],     adv: [],    mainKey: [1,2,3],       advKey: [],    added: "2026-10-21" },
       { slug: "electrostatics",         title: "Electrostatics",         group: "Electricity and Magnetism", main: [1,2,3,4],     adv: [],    mainKey: [1,2,3,4],       advKey: [],    added: "2026-10-21" },
-      { slug: "electricity",         title: "Current Electricity",         group: "Electricity and Magnetism", main: [1,2,4],     adv: [],    mainKey: [1,2,4],       advKey: [],    added: "2026-10-21" },
+      { slug: "current",         title: "Current Electricity",         group: "Electricity and Magnetism", main: [1,2,4],     adv: [],    mainKey: [1,2,4],       advKey: [],    added: "2026-10-21" },
 
 
   //{ slug: "rotational-motion",      title: "Rotational Motion",      group: "Mechanics", main: [],        adv: [],    added: "2026-10-18" },
