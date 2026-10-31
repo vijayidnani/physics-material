@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Add user{% endblock %}
+{% block content %}
+<div class="card" style="max-width:480px;">
+  <h1>Add a user</h1>
+  <form method="post">
+    <input type="hidden" name="csrf" value="{{ csrf_token }}">
+    <label for="full_name">Full name</label>
+    <input id="full_name" name="full_name" required>
+    <label for="username">Login ID</label>
+    <input id="username" name="username" required>
+    <label for="role">Role</label>
+    <select id="role" name="role">
+      <option value="student">Student</option>
+      <option value="teacher">Teacher</option>
+      <option value="admin">Admin</option>
+    </select>
+    <label for="password">Starting password (min 8 characters)</label>
+    <input id="password" name="password" type="password" minlength="8" required>
+    <p><button type="submit">Create user</button></p>
+  </form>
+</div>
+{% endblock %}

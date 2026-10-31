@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}My results{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>My results</h1>
+  {% if rows %}
+  <table>
+    <tr><th>Exam</th><th>Subject</th><th>Marks</th><th>Out of</th><th>%</th></tr>
+    {% for r in rows %}
+    <tr>
+      <td>{{ r.exam }}</td><td>{{ r.subject }}</td>
+      <td>{{ '%g' % r.marks }}</td><td>{{ '%g' % r.max_marks }}</td>
+      <td>{{ '%.1f' % (r.marks / r.max_marks * 100) }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  <p class="muted">No results have been published for you yet.</p>
+  {% endif %}
+</div>
+{% endblock %}

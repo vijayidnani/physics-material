@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Users{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Users</h1>
+  <p><a class="btn" href="{{ url_for('add_user') }}">Add user</a></p>
+  <table>
+    <tr><th>Name</th><th>Login ID</th><th>Role</th><th>Reset password</th></tr>
+    {% for u in rows %}
+    <tr>
+      <td>{{ u.full_name }}</td><td>{{ u.username }}</td><td>{{ u.role }}</td>
+      <td>
+        <form method="post" action="{{ url_for('reset_password', user_id=u.id) }}" style="display:flex;gap:6px;">
+          <input type="hidden" name="csrf" value="{{ csrf_token }}">
+          <input name="password" type="password" placeholder="New password" minlength="8" required style="padding:6px;">
+          <button type="submit" style="padding:6px 10px;">Set</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

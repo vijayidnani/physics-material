@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Add result{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Add a result</h1>
+  {% if not students %}
+    <p class="muted">There are no students yet. Ask an admin to add student accounts first.</p>
+  {% else %}
+  <form method="post">
+    <input type="hidden" name="csrf" value="{{ csrf_token }}">
+    <label for="student_id">Student</label>
+    <select id="student_id" name="student_id" required>
+      {% for s in students %}<option value="{{ s.id }}">{{ s.full_name }} ({{ s.username }})</option>{% endfor %}
+    </select>
+    <label for="exam">Exam name</label>
+    <input id="exam" name="exam" placeholder="Mid-term 2026" required>
+    <label for="subject">Subject</label>
+    <input id="subject" name="subject" required>
+    <div class="row">
+      <div><label for="marks">Marks obtained</label><input id="marks" name="marks" type="number" step="any" min="0" required></div>
+      <div><label for="max_marks">Maximum marks</label><input id="max_marks" name="max_marks" type="number" step="any" min="1" value="100" required></div>
+    </div>
+    <p><button type="submit">Save result</button></p>
+  </form>
+  {% endif %}
+</div>
+{% endblock %}
