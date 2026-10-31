@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sagar Public School | Integrated Programme | JEE Test Series Performance Analysis</title>
+<meta name="description" content="Sagar Public School Integrated Programme JEE Test Series Performance Analysis Portal">
+<style>
+:root{color-scheme:light;--bg:#edf1f5;--card:#fff;--ink:#172433;--muted:#617184;--line:#d8e0e8;--blue:#2349bd;--blue2:#eaf0ff;--green:#16845b;--red:#c34242;--amber:#a96b08;--grey:#9aa7b5;--shadow:0 8px 28px rgba(23,36,51,.06)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 Inter,"Segoe UI",Arial,sans-serif}
+.wrap{max-width:1250px;margin:auto;padding:20px}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:16px 0 20px;border-bottom:1px solid var(--line)}
+.brand{display:flex;gap:13px;align-items:center}.mark{width:44px;height:44px;border-radius:12px;background:var(--blue);color:white;display:grid;place-items:center;font-weight:800;font-size:16px;letter-spacing:-1px}
+h1,h2,h3,p{margin:0}h1{font-size:clamp(19px,3vw,25px);letter-spacing:-.5px}.subhead{color:var(--muted);font-size:12px;margin-top:3px}.eyebrow{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--blue);font-weight:800}
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:end}.field{display:grid;gap:4px}.field label{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}.field select,.field input{min-width:130px;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);font:inherit}
+button,.btn{border:0;border-radius:8px;background:var(--blue);color:white;padding:10px 13px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}.btn.secondary,button.secondary{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.nav{display:flex;gap:5px;border-bottom:1px solid var(--line);margin:15px 0 20px;overflow:auto}.nav button{background:transparent;color:var(--muted);border-radius:0;border-bottom:3px solid transparent;padding:11px 15px;white-space:nowrap}.nav button.active{color:var(--blue);border-bottom-color:var(--blue)}
+main{display:grid;gap:18px}.headrow{display:flex;justify-content:space-between;gap:12px;align-items:end;flex-wrap:wrap}.headrow h2{font-size:23px;letter-spacing:-.5px}.muted{color:var(--muted)}.small{font-size:12px}
+.grid{display:grid;gap:12px}.kpis{grid-template-columns:repeat(4,minmax(0,1fr))}.subjects{grid-template-columns:repeat(3,minmax(0,1fr))}.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px;box-shadow:var(--shadow);min-width:0}.kpi .klabel{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:700}.kpi strong{display:block;font-size:29px;line-height:1.2;margin:7px 0 3px;letter-spacing:-1px}.kpi small{color:var(--muted)}
+.section-title{font-size:16px;font-weight:800;margin-bottom:4px}.section-note{font-size:12px;color:var(--muted);margin-bottom:12px}
+.subjcard h3{font-size:14px}.subjscore{font-size:25px;font-weight:800;margin:8px 0 2px}.bar{height:9px;background:#edf1f5;border-radius:20px;overflow:hidden;margin:9px 0}.bar span{height:100%;display:block;border-radius:20px;background:var(--blue)}.metrics{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:11px}
+.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:650px;font-size:12px}th,td{text-align:left;padding:10px 11px;border-bottom:1px solid var(--line);vertical-align:top}th{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);background:#f8fafc;white-space:nowrap}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}.pill{display:inline-block;padding:3px 7px;border-radius:20px;font-size:10px;font-weight:800}.good{background:#e4f5ed;color:var(--green)}.bad{background:#fdeaea;color:var(--red)}.warn{background:#fff3db;color:var(--amber)}.neutral{background:#edf1f5;color:#5f6e7d}
+.student-select{min-width:230px}.student-head{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap}
+details{border:1px solid var(--line);border-radius:10px;background:#fff;margin-top:9px;overflow:hidden}summary{padding:12px 14px;cursor:pointer;font-weight:800;list-style:none}summary::-webkit-details-marker{display:none}summary:after{content:"＋";float:right;color:var(--blue)}details[open] summary:after{content:"−"}details .inside{padding:0 14px 14px}
+.qchips{display:flex;gap:7px;flex-wrap:wrap;margin:8px 0}.qchip{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font:700 11px ui-monospace,monospace;border:2px solid var(--grey);color:var(--muted);background:#fff}.qchip.wrong{border:3px solid var(--red);color:var(--red)}.qchip.blank{background:#eef1f4;border-color:#c6d0da;color:#596878}
+.chart{width:100%;height:auto;display:block}.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:var(--muted);margin-top:8px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}
+.notice{padding:12px 14px;background:#fff8e8;border:1px solid #f0dba9;border-radius:10px;color:#76500d;font-size:12px}
+.empty{padding:22px;text-align:center;color:var(--muted);background:#fff;border:1px dashed var(--line);border-radius:12px}
+.footer{padding:20px 0;color:var(--muted);font-size:11px}
+@media(max-width:800px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.subjects{grid-template-columns:1fr}.two{grid-template-columns:1fr}}
+@media(max-width:480px){.wrap{padding:12px}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.kpi strong{font-size:23px}.field select{min-width:105px}}
+@media print{body{background:#fff}.wrap{max-width:none;padding:0}.top,.nav,.controls,.no-print,.footer{display:none!important}.card{box-shadow:none;break-inside:avoid}.print-only{display:block!important}main{gap:10px}.student-report{display:block!important}.student-report .card{margin-bottom:10px}details{break-inside:avoid}details:not([open])>.inside{display:block!important}summary:after{display:none}}
+.print-only{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+ <div class="brand"><div class="mark">SPS</div><div><div class="eyebrow">Sagar Public School</div><h1>Integrated Programme — JEE Test Series</h1><div class="subhead">Performance Analysis Portal · Student & Teacher Analytics</div></div></div>
+ <div class="controls no-print" id="filters">
+  <div class="field"><label for="branch">Branch</label><select id="branch"><option value="ALL">All branches</option></select></div>
+  <div class="field"><label for="test">Test</label><select id="test"></select></div>
+  <div class="field"><label for="classFilter">Class</label><select id="classFilter"><option value="ALL">All classes</option></select></div>
+  <div class="field"><label for="sectionFilter">Section</label><select id="sectionFilter"><option value="ALL">All sections</option></select></div>
+ </div>
+</header>
+<nav class="nav no-print">
+ <button class="active" data-tab="overview">Overview</button><button data-tab="student">Student Report</button><button data-tab="teacher">Teacher Dashboard</button><button data-tab="questions">Question Analysis</button>
+</nav>
+<main id="app"><div class="empty">Loading test data…</div></main>
+<div class="footer">Sagar Public School · Integrated Programme · JEE Test Series Performance Analysis. Student records are displayed only for datasets supplied to this portal.</div>
+</div>
+<script>
+(()=>{'use strict';
+let TESTS=[],tab='overview',selectedStudent='',sortHard=true;
+const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const pct=x=>`${Math.round((x||0)*100)}%`,slug=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-');
+const fmtDate=s=>s?new Date(s+'T00:00:00').toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'}):'';
+const current=()=>TESTS.find(t=>t.id===$('#test').value)||TESTS[0];
+const branch=()=>$('#branch').value,cls=()=>$('#classFilter').value,section=()=>$('#sectionFilter').value;
+function studentsFor(t){return (t?.students||[]).filter(s=>(branch()==='ALL'||(t.branch||'SN')===branch())&&(cls()==='ALL'||String(s.cls||'').replace(/^[0-9]+/,'')===cls()||String(s.cls||'')===cls())&&(section()==='ALL'||String(s.section||'')===section()));}
+function result(t,s){let correct=0,wrong=0,blank=0,marks=0,sub={},qs=(t.q||[]).map((a,i)=>{let ans=String(s.r?.[i]??'').trim(),key=String(t.key?.[i]??'').trim(),status=!ans?'blank':ans.toUpperCase()===key.toUpperCase()?'correct':'wrong';if(status==='correct'){correct++;marks+=Number(t.mc??4)}else if(status==='wrong'){wrong++;marks+=Number(t.mw??-1)}else blank++;let q={n:i+1,subj:a[0],chapter:a[1],topic:a[2],subtopic:a[3],ans,key,status};let z=sub[q.subj]||(sub[q.subj]={marks:0,correct:0,wrong:0,blank:0,total:0,max:0});z[status]++;z.total++;z.max+=Number(t.mc??4);if(status==='correct')z.marks+=Number(t.mc??4);if(status==='wrong')z.marks+=Number(t.mw??-1);return q;});
+return {marks,correct,wrong,blank,attempted:correct+wrong,accuracy:correct/(correct+wrong||1),attemptRate:(correct+wrong)/(qs.length||1),qs,sub,percent:marks/(t.max||300)};}
+function branchTests(){return TESTS.filter(t=>branch()==='ALL'||(t.branch||'SN')===branch());}
+function testsInScope(){return branchTests().sort((a,b)=>a.date.localeCompare(b.date));}
+function setOptions(){
+ const bs=['SN','RN','GN','KE'];$('#branch').innerHTML='<option value="ALL">All branches</option>'+bs.map(b=>`<option value="${b}">${b}</option>`).join('');
+ $('#test').innerHTML=branchTests().sort((a,b)=>b.date.localeCompare(a.date)).map(t=>`<option value="${esc(t.id)}">${esc(t.name)} · ${fmtDate(t.date)} · ${t.branch||'SN'}</option>`).join('');
+ const t=current(),ss=t?.students||[],classes=[...new Set(ss.map(s=>String(s.cls||'').match(/^\\d+/)?.[0]||s.cls).filter(Boolean))].sort();
+ $('#classFilter').innerHTML='<option value="ALL">All classes</option>'+classes.map(x=>`<option>${esc(x)}</option>`).join('');
+ const sections=[...new Set(ss.map(s=>s.section||String(s.cls||'').replace(/^\\d+/,'')).filter(Boolean))].sort();
+ $('#sectionFilter').innerHTML='<option value="ALL">All sections</option>'+sections.map(x=>`<option>${esc(x)}</option>`).join('');
+}
+function kpi(label,value,sub=''){return `<div class="card kpi"><div class="klabel">${label}</div><strong>${value}</strong><small>${sub}</small></div>`}
+function bar(v){return `<div class="bar"><span style="width:${Math.max(0,Math.min(100,v*100))}%"></span></div>`}
+function trendSvg(items,key,title){if(items.length<2)return `<div class="empty">Trend will appear when at least two tests are uploaded for this branch/student.</div>`;let w=640,h=190,p=34,vals=items.map(x=>x[key]),max=Math.max(1,...vals),min=Math.min(0,...vals),pts=vals.map((v,i)=>[p+i*(w-2*p)/(vals.length-1),h-p-(v-min)/(max-min||1)*(h-2*p)]);return `<svg class="chart" viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(title)}">${[0,1,2,3].map(i=>`<line x1="${p}" y1="${p+i*(h-2*p)/3}" x2="${w-p}" y2="${p+i*(h-2*p)/3}" stroke="#e5eaf0"/>`).join('')}<polyline fill="none" stroke="#2349bd" stroke-width="3" points="${pts.map(p=>p.join(',')).join(' ')}"/>${pts.map((p,i)=>`<circle cx="${p[0]}" cy="${p[1]}" r="5" fill="#2349bd"/><text x="${p[0]}" y="${p[1]-10}" text-anchor="middle" font-size="11" fill="#172433">${vals[i]}</text><text x="${p[0]}" y="${h-8}" text-anchor="middle" font-size="10" fill="#617184">${esc(items[i].name.replace('JM Revision Test ','T'))}</text>`).join('')}</svg>`}
+function renderOverview(){
+ const t=current(),ss=studentsFor(t);if(!t||!ss.length)return `<div class="empty">No student records match the selected branch, test and class filters.</div>`;
+ const rs=ss.map(s=>({s,r:result(t,s)})),avg=rs.reduce((a,x)=>a+x.r.marks,0)/rs.length,top=Math.max(...rs.map(x=>x.r.marks)),low=Math.min(...rs.map(x=>x.r.marks));
+ let subjects=['Physics','Chemistry','Mathematics'];let sub=subjects.map(name=>{let vals=rs.map(x=>x.r.sub[name]).filter(Boolean);let m=vals.reduce((a,x)=>a+x.marks,0)/(vals.length||1),max=vals.reduce((a,x)=>a+x.max,0)/(vals.length||1);return `<div class="card subjcard"><h3>${name}</h3><div class="subjscore">${Math.round(m)} <span class="muted small">/ ${Math.round(max)}</span></div>${bar(m/(max||1))}<div class="metrics"><span>Branch average</span><b>${pct(m/(max||1))}</b></div></div>`}).join('');
+ let history=testsInScope().filter(x=>x.students?.length).map(x=>{let a=x.students.filter(s=>branch()==='ALL'||(x.branch||'SN')===branch()).map(s=>result(x,s).marks);return {name:x.name,avg:a.reduce((p,v)=>p+v,0)/(a.length||1)}})
+ return `<div class="headrow"><div><div class="eyebrow">${esc(t.branch||'SN')} Branch · ${fmtDate(t.date)}</div><h2>Performance Overview</h2><p class="muted small">${esc(t.name)} · ${ss.length} students included in current filters</p></div></div>
+ <div class="grid kpis">${kpi('Branch average',avg.toFixed(1),`out of ${t.max} marks`)}${kpi('Highest score',top,`out of ${t.max}`)}${kpi('Lowest score',low,`out of ${t.max}`)}${kpi('Students analysed',ss.length,'in selected filters')}</div>
+ <section><h3 class="section-title">Subject-wise branch performance</h3><p class="section-note">Average marks and average percentage by subject.</p><div class="grid subjects">${sub}</div></section>
+ <section class="card"><h3 class="section-title">Branch performance trend</h3><p class="section-note">Average total marks across available tests. Tests not yet uploaded are not shown.</p>${trendSvg(history,'avg','Branch average trend')}</section>
+ <div class="notice">Current uploaded dataset: ${esc(t.branch||'SN')} branch, ${esc(t.name)}. Additional branch/test data will automatically become available when added to tests.json.</div>`;
+}
+function studentOptions(t){return studentsFor(t).map(s=>`<option value="${esc(slug(s.name))}">${esc(s.name)} · Roll ${esc(s.roll)}</option>`).join('')}
+function renderStudent(){
+ const t=current(),ss=studentsFor(t);if(!t||!ss.length)return `<div class="empty">No student records available for the selected filters.</div>`;
+ let selected=ss.find(s=>slug(s.name)===selectedStudent)||ss[0];selectedStudent=slug(selected.name);let r=result(t,selected),rank=selected.rankSN||'—',overall=selected.rankAll||'—',percentile=ss.length>1?(ss.filter(x=>result(t,x).marks<r.marks).length/(ss.length-1))*100:100;
+ let sub=['Physics','Chemistry','Mathematics'].map(name=>{let x=r.sub[name];if(!x)return '';return `<div class="card subjcard"><h3>${name}</h3><div class="subjscore">${x.marks} <span class="muted small">/ ${x.max}</span></div>${bar(x.marks/(x.max||1))}<div class="metrics"><span>${x.correct} correct · ${x.wrong} wrong · ${x.blank} skipped</span><b>${pct(x.marks/(x.max||1))}</b></div></div>`}).join('');
+ let history=testsInScope().filter(x=>x.students?.some(s=>s.name===selected.name)).map(x=>{let st=x.students.find(s=>s.name===selected.name);let rr=result(x,st);return {name:x.name,marks:rr.marks,Physics:rr.sub.Physics?.marks||0,Chemistry:rr.sub.Chemistry?.marks||0,Mathematics:rr.sub.Mathematics?.marks||0}});
+ let missed=r.qs.filter(q=>q.status!=='correct'),wrong=missed.filter(q=>q.status==='wrong'),blank=missed.filter(q=>q.status==='blank');
+ let qgroups=['Physics','Chemistry','Mathematics'].map(sj=>{let qs=wrong.filter(q=>q.subj===sj);if(!qs.length)return '';return `<div class="inside"><b>${sj}</b><div class="qchips">${qs.map(q=>`<span class="qchip ${q.status}" title="${esc(q.chapter)} — ${esc(q.topic)}">Q${q.n}</span>`).join('')}</div><ul>${qs.map(q=>`<li><b>Q${q.n}</b> · ${esc(q.chapter)} · ${esc(q.topic)} — ${q.status==='wrong'?'Incorrect':'Not attempted'}; answer key: ${esc(q.key)}</li>`).join('')}</ul></div>`}).join('');
+ let chapters={};missed.forEach(q=>{let k=q.subj+'|'+q.chapter;(chapters[k]??=[]).push(q)});
+ let weak=Object.entries(chapters).map(([k,qs])=>({k,qs,rate:qs.length})).sort((a,b)=>b.rate-a.rate).slice(0,5);
+ return `<div class="student-report"><div class="student-head"><div><div class="eyebrow">Individual Student Performance Report</div><h2>${esc(selected.name)}</h2><p class="muted small">Roll ${esc(selected.roll)} · Class ${esc(selected.cls)} · ${esc(t.branch||'SN')} Branch · ${esc(t.name)}</p></div><div class="no-print"><div class="field"><label for="studentPicker">Select student</label><select id="studentPicker" class="student-select">${studentOptions(t)}</select></div><button onclick="window.print()" style="margin-top:8px">Download / Print PDF</button></div></div>
+ <div class="grid kpis" style="margin-top:14px">${kpi('Total marks',`${r.marks} / ${t.max}`,`${pct(r.percent)} of maximum`)}${kpi('Branch rank',`#${rank}`,`of ${ss.length} students`)}${kpi('Overall rank',`#${overall}`,`as supplied in test data`)}${kpi('Branch percentile',`${percentile.toFixed(1)}%`,`calculated from branch rank`)}${kpi('Accuracy',pct(r.accuracy),`${r.correct} correct / ${r.attempted} attempted`)}${kpi('Attempted',`${r.attempted} / ${r.qs.length}`,`${r.wrong} incorrect · ${r.blank} skipped`)}</div>
+ <section><h3 class="section-title">Subject-wise performance</h3><p class="section-note">Marks, accuracy and attempted-question counts.</p><div class="grid subjects">${sub}</div></section>
+ <section class="card"><h3 class="section-title">Performance trend</h3><p class="section-note">Overall score across available tests.</p>${trendSvg(history,'marks','Student total marks trend')}</section>
+ <section class="card"><h3 class="section-title">Subject-wise performance trends</h3><p class="section-note">Track whether each subject is improving independently. A total-score rise can hide a decline in one subject.</p>${['Physics','Chemistry','Mathematics'].map(sj=>`<h3 style="margin:12px 0 4px">${sj}</h3>${trendSvg(history,sj,sj+' trend')}`).join('')}</section>
+ <section class="card"><h3 class="section-title">Priority revision areas</h3><p class="section-note">Chapters with the highest number of incorrect or unattempted questions.</p>${weak.length?`<ol>${weak.map(x=>`<li><b>${esc(x.k.split('|')[1])}</b> <span class="muted">(${esc(x.k.split('|')[0])})</span> — revisit ${x.qs.map(q=>'Q'+q.n).join(', ')}</li>`).join('')}</ol>`:'No incorrect or skipped questions recorded.'}</section>
+ <section class="card"><h3 class="section-title">Question-wise revision list</h3><p class="section-note">Expand the sections to see the exact question numbers, topics and answer keys.</p>
+ <details><summary>Incorrect questions (${wrong.length})</summary>${qgroups.replace(/<div class="inside">/g,'<div class="inside">')}</details>
+ <details><summary>Skipped / unattempted questions (${blank.length})</summary><div class="inside">${['Physics','Chemistry','Mathematics'].map(sj=>{let qs=blank.filter(q=>q.subj===sj);return qs.length?`<b>${sj}</b><div class="qchips">${qs.map(q=>`<span class="qchip blank" title="${esc(q.chapter)} — ${esc(q.topic)}">Q${q.n}</span>`).join('')}</div><ul>${qs.map(q=>`<li><b>Q${q.n}</b> · ${esc(q.chapter)} · ${esc(q.topic)} — skipped; answer key: ${esc(q.key)}</li>`).join('')}</ul>`:''}).join('')}</div></details></section>
+ <section class="card"><h3 class="section-title">Recommended action</h3><ol><li>Revise the concepts behind the incorrect questions before attempting another timed set.</li><li>For skipped questions, review the formula/concept and solve 5–10 graded practice questions per weak topic.</li><li>Reattempt all incorrect and skipped questions after revision; record the reason for each error.</li></ol></section>
+ <section class="card"><h3 class="section-title">Test comparison</h3><div class="tablewrap"><table><thead><tr><th>Test</th><th class="num">Total</th><th class="num">Physics</th><th class="num">Chemistry</th><th class="num">Mathematics</th></tr></thead><tbody>${history.map(x=>`<tr><td>${esc(x.name)}</td><td class="num">${x.marks}</td><td class="num">${x.Physics}</td><td class="num">${x.Chemistry}</td><td class="num">${x.Mathematics}</td></tr>`).join('')}</tbody></table></div></section>
+ <div class="print-only small muted">Sagar Public School · Integrated Programme · JEE Test Series Performance Analysis</div></div>`;
+}
+function renderTeacher(){
+ let all=branchTests(),t=current(),ss=studentsFor(t);if(!t)return `<div class="empty">No tests available for this branch.</div>`;
+ let rows=ss.map(s=>({s,r:result(t,s)})).sort((a,b)=>b.r.marks-a.r.marks);
+ let chapters={};rows.forEach(({r})=>r.qs.forEach(q=>{let k=q.subj+'|'+q.chapter;let x=chapters[k]||(chapters[k]={n:0,c:0,w:0,b:0});x.n++;x[q.status==='correct'?'c':q.status==='wrong'?'w':'b']++}));
+ let weak=Object.entries(chapters).map(([k,x])=>({k,x,rate:x.c/(x.n||1)})).sort((a,b)=>a.rate-b.rate);
+ return `<div class="headrow"><div><div class="eyebrow">Teacher / Academic Leadership View</div><h2>Teacher Dashboard</h2><p class="muted small">${esc(t.branch||'SN')} · ${esc(t.name)} · ${ss.length} students in current filters</p></div></div>
+ <div class="grid kpis">${kpi('Students',ss.length,'current filters')}${kpi('Branch average',(rows.reduce((a,x)=>a+x.r.marks,0)/(rows.length||1)).toFixed(1),`out of ${t.max}`)}${kpi('Highest',Math.max(0,...rows.map(x=>x.r.marks)),`out of ${t.max}`)}${kpi('Below 40% ',rows.filter(x=>x.r.percent<.4).length,'students requiring attention')}</div>
+ <section class="card"><h3 class="section-title">Student performance list</h3><p class="section-note">Use branch, test, class and section filters above to narrow the cohort.</p><div class="tablewrap"><table><thead><tr><th>Student</th><th>Roll</th><th>Class</th><th class="num">Marks</th><th class="num">Accuracy</th><th class="num">Attempted</th><th>Priority</th></tr></thead><tbody>${rows.map(({s,r})=>`<tr><td>${esc(s.name)}</td><td>${esc(s.roll)}</td><td>${esc(s.cls)}</td><td class="num"><b>${r.marks}</b> / ${t.max}</td><td class="num">${pct(r.accuracy)}</td><td class="num">${r.attempted}/${r.qs.length}</td><td>${r.qs.filter(q=>q.status!=='correct').length} questions to review</td></tr>`).join('')}</tbody></table></div></section>
+ <section class="card"><h3 class="section-title">Chapters requiring classroom revision</h3><p class="section-note">Lowest correct-response rates across students in the selected cohort.</p><div class="tablewrap"><table><thead><tr><th>Chapter</th><th>Subject</th><th class="num">Correct</th><th class="num">Wrong</th><th class="num">Skipped</th><th class="num">Success rate</th></tr></thead><tbody>${weak.slice(0,15).map(x=>`<tr><td>${esc(x.k.split('|')[1])}</td><td>${esc(x.k.split('|')[0])}</td><td class="num">${x.x.c}</td><td class="num">${x.x.w}</td><td class="num">${x.x.b}</td><td class="num"><span class="pill ${x.rate<.4?'bad':x.rate<.7?'warn':'good'}">${pct(x.rate)}</span></td></tr>`).join('')}</tbody></table></div></section>`;
+}
+function renderQuestions(){
+ let t=current(),ss=studentsFor(t);if(!t||!ss.length)return `<div class="empty">No data for this selection.</div>`;
+ let qs=t.q.map((q,i)=>{let c=0,w=0,b=0;ss.forEach(s=>{let a=String(s.r?.[i]??'').trim();if(!a)b++;else if(a.toUpperCase()===String(t.key[i]).toUpperCase())c++;else w++});return {n:i+1,q,key:t.key[i],c,w,b,rate:c/ss.length}});
+ qs.sort((a,b)=>a.rate-b.rate);
+ return `<div class="headrow"><div><div class="eyebrow">Question-level diagnostics</div><h2>Question Analysis</h2><p class="muted small">Lowest success rates first · ${ss.length} students · ${esc(t.name)}</p></div></div>
+ <section class="card"><h3 class="section-title">Questions with unusually low success rates</h3><p class="section-note">Questions answered correctly by fewer than 40% of the selected cohort are highlighted for review. Consider checking the question, answer key and teaching coverage.</p><div class="tablewrap"><table><thead><tr><th>Question</th><th>Subject</th><th>Chapter</th><th>Topic</th><th class="num">Correct</th><th class="num">Wrong</th><th class="num">Skipped</th><th class="num">Success</th></tr></thead><tbody>${qs.map(x=>`<tr><td><b>Q${x.n}</b></td><td>${esc(x.q[0])}</td><td>${esc(x.q[1])}</td><td>${esc(x.q[2])}</td><td class="num">${x.c}</td><td class="num">${x.w}</td><td class="num">${x.b}</td><td class="num"><span class="pill ${x.rate<.4?'bad':x.rate<.7?'warn':'good'}">${pct(x.rate)}</span></td></tr>`).join('')}</tbody></table></div></section>`;
+}
+function render(){let app=$('#app');if(tab==='overview')app.innerHTML=renderOverview();else if(tab==='student')app.innerHTML=renderStudent();else if(tab==='teacher')app.innerHTML=renderTeacher();else app.innerHTML=renderQuestions();}
+document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>{tab=b.dataset.tab;document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x===b));render()}));
+['branch','test','classFilter','sectionFilter'].forEach(id=>$('#'+id).addEventListener('change',()=>{if(id==='branch'){setOptions()}else if(id==='test'){let oldClass=cls(),oldSec=section();setOptions();if([...$('#classFilter').options].some(o=>o.value===oldClass))$('#classFilter').value=oldClass;if([...$('#sectionFilter').options].some(o=>o.value===oldSec))$('#sectionFilter').value=oldSec;}render()}));
+document.addEventListener('change',e=>{if(e.target.id==='studentPicker'){selectedStudent=e.target.value;render()}});
+fetch('./tests.json').then(r=>{if(!r.ok)throw Error('Could not load tests.json');return r.json()}).then(data=>{TESTS=Array.isArray(data)?data:[data];setOptions();render()}).catch(err=>{$('#app').innerHTML=`<div class="notice">Unable to load tests.json. Keep portal.html and tests.json in the same folder and open the portal through GitHub Pages or a local web server. Details: ${esc(err.message)}</div>`});
+})();
+</script>
+</body></html>
