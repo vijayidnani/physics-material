@@ -1,0 +1,414 @@
+<title>SN Branch Result Portal</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one ledger-style column. Three tabs (student report, SN results, branch analysis). The question map is drawn like an OMR sheet. */
+:root{
+  --bg:#EDF0F3; --surface:#FFFFFF; --surface-2:#F4F6F8; --fg:#15202B; --muted:#586674; --line:#D3DAE1;
+  --accent:#2446C9; --accent-fg:#FFFFFF; --good:#1E7F55; --bad:#C0392B; --warn:#9A5F08; --skip:#B9C3CD;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E151C; --surface:#16202A; --surface-2:#1B2733; --fg:#E6ECF1; --muted:#93A1AE; --line:#2A3846;
+    --accent:#7C9BFF; --accent-fg:#0E151C; --good:#4CC38A; --bad:#FF7D6E; --warn:#E3A646; --skip:#3B4B5A; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E151C; --surface:#16202A; --surface-2:#1B2733; --fg:#E6ECF1; --muted:#93A1AE; --line:#2A3846;
+  --accent:#7C9BFF; --accent-fg:#0E151C; --good:#4CC38A; --bad:#FF7D6E; --warn:#E3A646; --skip:#3B4B5A; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:14px/1.55 var(--body);padding-block:0 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:26px}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:1.2rem;font-weight:650}
+h3{font-size:1.02rem;font-weight:650}
+p{margin:0}
+a{color:var(--accent)}
+#main{display:flex;flex-direction:column;gap:26px}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+.label{font:500 11px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px;padding-block:18px;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.omr{display:flex;gap:4px}
+.omr i{width:12px;height:12px;border-radius:50%;border:1.5px solid var(--fg);display:block}
+.omr i.on{background:var(--fg)}
+.brand h1{font-size:1.2rem;font-weight:700}
+.brand small{display:block;color:var(--muted);font-size:12px}
+.testbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.testbar select{padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);max-width:100%}
+.testname{font:500 13px var(--mono)}
+
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);overflow-x:auto}
+.tabs a{padding:10px 16px;text-decoration:none;color:var(--muted);font-weight:500;border-bottom:3px solid transparent;margin-bottom:-1px;white-space:nowrap}
+.tabs a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--accent)}
+
+.shead{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px}
+.shead h2{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:700;line-height:1.1}
+.who{display:flex;flex-direction:column;gap:6px;min-width:0}
+.back{font-weight:500;text-decoration:none}
+.back:hover{text-decoration:underline}
+.pick{display:flex;flex-direction:column;gap:4px}
+.pick select{padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);min-width:210px;max-width:100%}
+
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
+.strip>div{padding:14px 16px;display:flex;flex-direction:column;gap:6px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 -1px -1px 0;min-width:0}
+.strip b{font:600 1.55rem/1 var(--display);font-variant-numeric:tabular-nums}
+.strip small{color:var(--muted);font-size:12px}
+
+section.block{display:flex;flex-direction:column;gap:14px}
+.block>header{display:flex;flex-direction:column;gap:3px}
+.block>header p{color:var(--muted);font-size:13px;max-width:72ch}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px}
+.scroll{overflow-x:auto}
+
+/* roster */
+.roster{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px}
+.roster a{display:flex;flex-direction:column;gap:2px;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:8px;text-decoration:none;color:var(--fg);min-width:0}
+.roster a:hover{border-color:var(--accent)}
+.roster b{font-weight:600}
+.roster small{font:12px var(--mono);color:var(--muted)}
+
+/* stacked bars */
+.stack{display:flex;height:10px;border-radius:5px;overflow:hidden;background:var(--skip)}
+.stack i{display:block;height:100%}
+.stack .c{background:var(--good)} .stack .w{background:var(--bad)} .stack .b{background:var(--skip)}
+.subjrow{display:grid;grid-template-columns:120px 1fr auto;gap:12px;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line)}
+.subjrow:last-of-type{border-bottom:0}
+.subjrow .stack{height:14px}
+.subjrow .nums{justify-self:end;text-align:right}
+@media (max-width:620px){.subjrow{grid-template-columns:1fr;gap:6px}.subjrow .nums{justify-self:start;text-align:left}}
+.key{display:flex;flex-wrap:wrap;gap:6px 16px;font:12px var(--mono);color:var(--muted)}
+.key i{display:inline-block;width:11px;height:11px;border-radius:50%;vertical-align:-1px;margin-right:5px;box-sizing:border-box}
+.panel>.key{padding:12px 18px;border-top:1px solid var(--line)}
+.nums{font:12px var(--mono);color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 14px}
+.nums b{color:var(--fg);font-weight:500}
+
+.chip{font:500 11px/1 var(--mono);padding:4px 7px;border-radius:4px;border:1px solid currentColor;white-space:nowrap}
+.chip.weak{color:var(--bad)} .chip.mid{color:var(--warn)} .chip.strong{color:var(--good)}
+.subj{font:500 10.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);padding:4px 6px;border-radius:4px;white-space:nowrap}
+
+/* priority list */
+.lead{font-size:15px;max-width:70ch}
+.prio{list-style:none;margin:0;padding:0;counter-reset:p}
+.prio li{counter-increment:p;display:grid;grid-template-columns:34px 1fr auto;gap:4px 12px;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line)}
+.prio li:last-child{border-bottom:0}
+.prio li::before{content:counter(p);font:600 1.15rem var(--display);color:var(--muted)}
+.prio .nm{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;min-width:0}
+.prio .nm strong{font-weight:600;font-size:15px}
+.prio .lost{font:500 13px var(--mono);text-align:right;white-space:nowrap}
+@media (max-width:620px){.prio li{grid-template-columns:28px 1fr}.prio .lost{grid-column:2;text-align:left}}
+
+/* chapter blocks */
+.chapters{display:flex;flex-direction:column}
+.chap{padding:16px 18px;display:flex;flex-direction:column;gap:10px;border-bottom:1px solid var(--line)}
+.chap:last-child{border-bottom:0}
+.chap-h{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+.chap-h strong{font-weight:600;font-size:15px}
+.bubbles{display:flex;flex-wrap:wrap;gap:6px}
+.q{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font:500 11px var(--mono);border:1.5px solid var(--skip);color:var(--muted);background:transparent;padding:0}
+.q.sm{width:28px;height:28px;font-size:10.5px}
+.q.c{background:var(--good);border-color:var(--good);color:#fff}
+.q.w{background:var(--surface);color:var(--bad);border:3px solid var(--bad)}
+.q.sel{outline:2px solid var(--accent);outline-offset:2px}
+:root[data-theme="dark"] .q.c{color:#0E151C}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .q.c{color:#0E151C}}
+.advice{font-size:13px;max-width:75ch}
+.rev{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.rev>li{display:flex;flex-direction:column;gap:4px;padding-left:12px;border-left:2px solid var(--line)}
+.rev .tp{font-weight:600}
+.rev ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px}
+.rev ul li{font-size:13px;display:flex;flex-wrap:wrap;gap:2px 8px;align-items:baseline}
+.tag{font:500 10.5px/1 var(--mono);padding:3px 6px;border-radius:4px;white-space:nowrap}
+.tag.w{color:var(--bad);border:1px solid var(--bad)}
+.tag.b{color:var(--muted);border:1px solid var(--skip)}
+.revlabel{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.empty{padding:22px;color:var(--muted)}
+.sjh{padding:12px 18px;background:var(--surface-2);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px}
+.sjh:not(:first-child){border-top:1px solid var(--line)}
+
+/* question map */
+.sheet{padding:18px;display:flex;flex-direction:column;gap:18px}
+.sheet .g{display:flex;flex-direction:column;gap:8px}
+.qd{padding:12px 14px;background:var(--surface-2);border-radius:8px;font-size:13px;min-height:3.4em}
+
+/* tables */
+table.t{width:100%;border-collapse:collapse;font-size:13px}
+table.t th{font:500 11px/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);white-space:nowrap}
+table.t td{padding:10px 14px;border-bottom:1px solid var(--line);white-space:nowrap;font-variant-numeric:tabular-nums}
+table.t tr:last-child td{border-bottom:0}
+table.t td.r,table.t th.r{text-align:right}
+table.t td.wrap{white-space:normal;min-width:170px}
+table.t td:first-child,table.t th:first-child{position:sticky;left:0;background:var(--surface);z-index:1}
+table.t tr.me td{background:var(--surface-2)}
+.linkbtn{color:var(--accent);font-weight:600;text-decoration:none}
+.linkbtn:hover{text-decoration:underline}
+.top3{font-weight:600}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.seg button{border:0;background:transparent;padding:7px 14px;font-weight:500}
+.seg button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.seg button+button{border-left:1px solid var(--line)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.foot{font-size:12px;color:var(--muted);max-width:90ch}
+.pill{display:inline-block;font:500 11px var(--mono);padding:3px 7px;border-radius:4px;border:1px solid currentColor}
+.pill.bad{color:var(--bad)} .pill.ok{color:var(--good)}
+@media (prefers-reduced-motion:no-preference){.stack i{transition:width .3s}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <span class="omr" aria-hidden="true"><i></i><i class="on"></i><i></i><i></i></span>
+      <div><h1>SN Branch Result Portal</h1><small>Class XII · Integrated Programme · JEE Main revision tests</small></div>
+    </div>
+    <div class="testbar" id="testbar"></div>
+  </header>
+  <nav class="tabs" id="tabs" aria-label="Sections"></nav>
+  <main id="main"></main>
+  <p class="foot" id="foot"></p>
+</div>
+
+<script>
+(function(){
+'use strict';
+var DATA=/*__DATA__*/[];
+var $=function(s){return document.querySelector(s)};
+var esc=function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
+var pc=function(x){return Math.round(x*100)+'%'};
+var slug=function(s){return s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')};
+var fmtDate=function(iso){var d=new Date(iso+'T00:00:00');return isNaN(d)?iso:d.toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'})};
+
+var TESTS=DATA.slice().sort(function(a,b){return a.date<b.date?-1:a.date>b.date?1:0});
+var TM={};
+TESTS.forEach(function(T){
+  TM[T.id]=T;
+  T.qs=T.q.map(function(a){return {subj:a[0],chap:a[1],topic:a[2],sub:a[3]}});
+  T.subjects=[];T.qs.forEach(function(q){if(T.subjects.indexOf(q.subj)<0)T.subjects.push(q.subj)});
+});
+var PEOPLE={};
+TESTS.forEach(function(T){T.students.forEach(function(s){var id=slug(s.name);(PEOPLE[id]=PEOPLE[id]||{id:id,name:s.name,per:{}}).per[T.id]=s})});
+var LIST=Object.keys(PEOPLE).map(function(k){return PEOPLE[k]}).sort(function(a,b){return a.name.localeCompare(b.name)});
+var S={tab:'student',pid:null,tid:TESTS[TESTS.length-1].id,comb:false,sort:'hard',qsel:null};
+
+/* ---------- computation ---------- */
+function recsFor(P,T){
+  var s=P.per[T.id]; if(!s)return null;
+  return T.qs.map(function(q,i){
+    var a=s.r[i]==null?'':String(s.r[i]).trim(),k=String(T.key[i]).trim();
+    var o=a===''?'B':(a.toUpperCase()===k.toUpperCase()?'C':'W');
+    return {t:T.id,i:i,n:i+1,subj:q.subj,chap:q.chap,topic:q.topic,sub:q.sub,ans:a,key:k,o:o,m:o==='C'?T.mc:(o==='W'?T.mw:0)};
+  });
+}
+var SC={};
+function summ(P,T){
+  var ck=P.id+'|'+T.id; if(SC[ck]!==undefined)return SC[ck];
+  var rs=recsFor(P,T); if(!rs){SC[ck]=null;return null}
+  var o={t:0,c:0,w:0,b:0,sub:{},rs:rs,max:T.max,s:P.per[T.id]};
+  rs.forEach(function(r){
+    var f=r.o.toLowerCase(); o.t+=r.m; o[f]++;
+    var s=o.sub[r.subj]||(o.sub[r.subj]={m:0,c:0,w:0,b:0,n:0,max:0});
+    s.m+=r.m; s[f]++; s.n++; s.max+=T.mc;
+  });
+  o.pct=o.t/T.max; SC[ck]=o; return o;
+}
+function chapters(recs){
+  var map={},out=[];
+  recs.forEach(function(r){
+    var k=r.subj+'||'+r.chap,c=map[k];
+    if(!c){c=map[k]={key:k,subj:r.subj,chap:r.chap,n:0,c:0,w:0,b:0,gain:0,poss:0,rs:[]};out.push(c)}
+    c.n++; c[r.o.toLowerCase()]++; c.gain+=r.m; c.poss+=TM[r.t].mc; c.rs.push(r);
+  });
+  out.forEach(function(c){c.lost=c.poss-c.gain;c.acc=c.c/c.n});
+  return out;
+}
+function status(a){return a<.4?{k:'weak',t:'Weak',o:0}:a<.7?{k:'mid',t:'Revise',o:1}:{k:'strong',t:'Strong',o:2}}
+function scopeTests(P){return S.comb?TESTS.filter(function(T){return P.per[T.id]}):[TM[S.tid]]}
+function scopeRecs(P,tests){var r=[];tests.forEach(function(T){var s=summ(P,T);if(s)r=r.concat(s.rs)});return r}
+function branchChap(tests){
+  var r=[];LIST.forEach(function(P){r=r.concat(scopeRecs(P,tests))});
+  var m={};chapters(r).forEach(function(c){m[c.key]=c});return m;
+}
+function priority(chs){return chs.filter(function(c){return c.acc<.7}).sort(function(a,b){return b.lost-a.lost||a.acc-b.acc})}
+function fm(n){return n<0?'\u2212'+(-n):String(n)}
+function joinNames(a){
+  var e=a.map(esc);
+  if(e.length<2)return e.join('');
+  return e.join(', then ');
+}
+function adviceFor(c){
+  if(c.acc>=.7)return 'Mostly solid. Fix the small slips listed below.';
+  if(c.b>=c.w&&c.b>c.c)return 'Most of these were not attempted. Learn the core concepts and formulas first, then practise basic questions from this chapter.';
+  if(c.w>c.c)return 'You attempted these but answered wrongly. Re-read the theory, then solve examples and check where the concept breaks.';
+  return 'Partly correct. Practise more questions from this chapter to make it reliable.';
+}
+
+/* ---------- views ---------- */
+function stack(o){var n=o.n||1;return '<div class="stack" role="img" aria-label="'+o.c+' right, '+o.w+' wrong, '+o.b+' not attempted"><i class="c" style="width:'+(o.c/n*100)+'%"></i><i class="w" style="width:'+(o.w/n*100)+'%"></i><i class="b" style="width:'+(o.b/n*100)+'%"></i></div>'}
+function bubble(r,sm){return '<button type="button" class="q '+r.o.toLowerCase()+(sm?' sm':'')+(S.qsel===r.t+':'+r.n?' sel':'')+'" data-q="'+r.t+':'+r.n+'" aria-label="Question '+r.n+': '+(r.o==='C'?'right':r.o==='W'?'wrong':'not attempted')+'">'+r.n+'</button>'}
+function legend(){return '<div class="key"><span><i style="background:var(--good)"></i>Right</span><span><i style="background:var(--surface);border:3px solid var(--bad)"></i>Wrong</span><span><i style="border:1.5px solid var(--skip)"></i>Not attempted</span></div>'}
+
+function renderChrome(){
+  var T=TM[S.tid];
+  $('#testbar').innerHTML=TESTS.length>1?'<label class="label" for="testSel">Test</label><select id="testSel">'+TESTS.slice().reverse().map(function(t){return '<option value="'+esc(t.id)+'"'+(t.id===S.tid?' selected':'')+'>'+esc(t.name)+' · '+fmtDate(t.date)+'</option>'}).join('')+'</select>':'<span class="testname">'+esc(T.name)+' · '+fmtDate(T.date)+'</span>';
+  var tabs=[['student','Student'],['results','Results'],['analysis','Analysis']];
+  $('#tabs').innerHTML=tabs.map(function(t){return '<a href="#'+t[0]+'"'+(S.tab===t[0]?' aria-current="page"':'')+'>'+t[1]+'</a>'}).join('');
+  $('#foot').textContent='Tests so far: '+TESTS.map(function(t){return t.name}).join(', ')+'. Marking: +'+T.mc+' for a right answer, '+T.mw+' for a wrong answer, 0 for not attempted. Chapter status: Strong is 70% or more right, Revise is 40 to 69%, Weak is below 40%. Chapters and topics follow the question mapping prepared for each paper.';
+}
+
+function renderLanding(){
+  var T=TM[S.tid];
+  var h='<section class="block"><header><h2>Find your report</h2><p>Select your name to see your result, the chapters and topics you need to work on, and your question-by-question map.</p></header><div class="roster">'+
+    LIST.filter(function(P){return P.per[T.id]}).map(function(P){return '<a href="#'+P.id+'"><b>'+esc(P.name)+'</b><small>Roll '+esc(P.per[T.id].roll)+'</small></a>'}).join('')+'</div></section>';
+  $('#main').innerHTML=h;
+}
+
+function renderReport(P){
+  var T=TM[S.tid],sm=summ(P,T);
+  if(!sm){$('#main').innerHTML='<p class="empty">No result for '+esc(P.name)+' in '+esc(T.name)+'. <a href="#student">Back to all students</a></p>';return}
+  var s=sm.s,tests=scopeTests(P),recs=scopeRecs(P,tests),chs=chapters(recs),bm=branchChap(tests);
+  var opts=LIST.filter(function(x){return x.per[T.id]}).map(function(x){return '<option value="'+x.id+'"'+(x.id===P.id?' selected':'')+'>'+esc(x.name)+'</option>'}).join('');
+  var h='<div class="shead"><div class="who"><a class="back" href="#student">← All students</a><h2>'+esc(P.name)+'</h2><span class="muted mono">Roll '+esc(s.roll)+' · Class '+esc(s.cls)+' · '+esc(T.name)+' · '+fmtDate(T.date)+'</span></div>'+
+    '<div class="pick"><label class="label" for="stuSel">Switch student</label><select id="stuSel">'+opts+'</select></div></div>';
+  var att=sm.c+sm.w;
+  h+='<div class="strip"><div><span class="label">Score</span><b>'+sm.t+' / '+T.max+'</b><small>'+pc(sm.pct)+' of maximum marks</small></div>'+
+     '<div><span class="label">Rank in SN</span><b>#'+s.rankSN+'</b><small>of '+T.students.length+' SN students</small></div>'+
+     '<div><span class="label">Overall rank</span><b>#'+s.rankAll+'</b><small>of '+T.overallCount+' students (SN, GN, RN)</small></div>'+
+     '<div><span class="label">Attempted</span><b>'+att+' / '+T.qs.length+'</b><small>'+sm.c+' right · '+sm.w+' wrong · '+sm.b+' blank</small></div></div>';
+
+  h+='<section class="block"><header><h2>Subject scores</h2><p>Each question is worth '+T.mc+' marks. A blank loses '+T.mc+' marks you could have earned, and a wrong answer loses '+(T.mc-T.mw)+'.</p></header><div class="panel">'+
+     T.subjects.map(function(sj){var o=sm.sub[sj];return '<div class="subjrow"><strong>'+esc(sj)+'</strong>'+stack(o)+'<div class="nums"><span><b>'+o.m+' / '+o.max+'</b> marks</span><span>'+o.c+' right</span><span>'+o.w+' wrong</span><span>'+o.b+' blank</span></div></div>'}).join('')+legend()+'</div></section>';
+
+  var pr=priority(chs),top=pr.slice(0,5);
+  var scopeSwitch=TESTS.filter(function(t){return P.per[t.id]}).length>1?'<div class="seg" role="group" aria-label="Scope"><button type="button" data-comb="0" aria-pressed="'+!S.comb+'">This test</button><button type="button" data-comb="1" aria-pressed="'+S.comb+'">All tests combined</button></div>':'';
+  h+='<section class="block"><header><div class="tools"><h2>What to work on</h2>'+scopeSwitch+'</div></header>';
+  if(top.length){
+    var names=top.slice(0,3).map(function(c){return c.chap});
+    h+='<p class="lead">Start with <span class="top3">'+joinNames(names)+'</span>. '+(S.comb?'These cost you the most marks across your tests.':'These cost you the most marks in this test.')+'</p>';
+    h+='<div class="panel"><ol class="prio">'+top.map(function(c){var st=status(c.acc);
+      return '<li><div class="nm"><strong>'+esc(c.chap)+'</strong><span class="subj">'+esc(c.subj)+'</span><span class="chip '+st.k+'">'+st.t+'</span></div><div class="lost">Scored '+fm(c.gain)+' of '+c.poss+' marks</div><div class="nums" style="grid-column:2/-1"><span><b>'+c.c+'</b> of '+c.n+' right</span><span>'+c.w+' wrong</span><span>'+c.b+' blank</span><span>Branch average '+(bm[c.key]?pc(bm[c.key].acc):'–')+' right</span></div></li>'}).join('')+'</ol></div>';
+  }else{
+    h+='<div class="panel"><p class="empty">No chapter is below 70% right. Keep practising mixed papers to hold this level.</p></div>';
+  }
+  h+='</section>';
+
+  h+='<section class="block"><header><h2>Chapter by chapter</h2><p>Every chapter in the paper, weakest first. Topics listed under a chapter are the ones to revise: questions you got wrong or did not attempt.</p></header><div class="panel">';
+  T.subjects.forEach(function(sj){
+    var list=chs.filter(function(c){return c.subj===sj}).sort(function(a,b){return status(a.acc).o-status(b.acc).o||b.lost-a.lost});
+    if(!list.length)return;
+    var tot=sm.sub[sj];
+    h+='<div class="sjh"><strong>'+esc(sj)+'</strong><span class="muted mono">'+list.length+' chapters</span></div><div class="chapters">';
+    list.forEach(function(c){
+      var st=status(c.acc),missed=c.rs.filter(function(r){return r.o!=='C'}),byTopic={},order=[];
+      missed.forEach(function(r){if(!byTopic[r.topic]){byTopic[r.topic]=[];order.push(r.topic)}byTopic[r.topic].push(r)});
+      h+='<div class="chap"><div class="chap-h"><strong>'+esc(c.chap)+'</strong><span class="chip '+st.k+'">'+st.t+'</span><span class="muted mono">'+c.c+' of '+c.n+' right · '+fm(c.gain)+' of '+c.poss+' marks · branch '+(bm[c.key]?pc(bm[c.key].acc):'–')+'</span></div>'+
+        stack(c)+'<div class="bubbles">'+c.rs.map(function(r){return bubble(r,true)}).join('')+'</div>';
+      if(missed.length){
+        h+='<p class="advice">'+adviceFor(c)+'</p><span class="revlabel">Topics to revise</span><ul class="rev">'+order.map(function(tp){
+          return '<li><span class="tp">'+esc(tp)+'</span><ul>'+byTopic[tp].map(function(r){return '<li><span class="tag '+(r.o==='W'?'w':'b')+'">'+(r.o==='W'?'Wrong':'Blank')+'</span><span class="mono">Q'+r.n+(S.comb?' · '+esc(TM[r.t].name):'')+'</span><span>'+esc(r.sub)+'</span></li>'}).join('')+'</ul></li>'}).join('')+'</ul>';
+      }else h+='<p class="advice">All questions in this chapter were answered correctly.</p>';
+      h+='</div>';
+    });
+    h+='</div>';
+  });
+  h+=legend().replace('class="key"','class="key" style="padding:12px 18px;border-top:1px solid var(--line)"')+'</div></section>';
+
+  h+='<section class="block"><header><h2>Question map</h2><p>Every question of '+esc(T.name)+', laid out like the OMR sheet. Tap a bubble for the chapter, topic and answers.</p></header><div class="panel sheet">';
+  T.subjects.forEach(function(sj){
+    var rs=sm.rs.filter(function(r){return r.subj===sj});
+    h+='<div class="g"><span class="label">'+esc(sj)+' · Q'+rs[0].n+'–'+rs[rs.length-1].n+'</span><div class="bubbles">'+rs.map(function(r){return bubble(r,false)}).join('')+'</div></div>';
+  });
+  h+=legend()+'<div class="qd" id="qd" aria-live="polite">'+qDetail(sm)+'</div></div></section>';
+
+  var taken=TESTS.filter(function(t){return P.per[t.id]});
+  if(taken.length>1){
+    h+='<section class="block"><header><h2>Test history</h2></header><div class="panel scroll"><table class="t"><thead><tr><th>Test</th><th>Date</th><th class="r">Score</th><th class="r">%</th><th class="r">SN rank</th><th class="r">Overall rank</th>'+TM[taken[0].id].subjects.map(function(sj){return '<th class="r">'+esc(sj.slice(0,4))+'</th>'}).join('')+'</tr></thead><tbody>'+
+      taken.map(function(t){var o=summ(P,t);return '<tr><td><b>'+esc(t.name)+'</b></td><td>'+fmtDate(t.date)+'</td><td class="r">'+o.t+' / '+t.max+'</td><td class="r">'+pc(o.pct)+'</td><td class="r">#'+o.s.rankSN+'</td><td class="r">#'+o.s.rankAll+'</td>'+t.subjects.map(function(sj){return '<td class="r">'+o.sub[sj].m+'</td>'}).join('')+'</tr>'}).join('')+'</tbody></table></div></section>';
+  }
+  $('#main').innerHTML=h;
+}
+function qDetail(sm){
+  if(!S.qsel)return 'Tap a bubble to see the question details.';
+  var p=S.qsel.split(':'),T=TM[p[0]],n=+p[1],P=PEOPLE[S.pid],o=summ(P,T);if(!o)return '';
+  var r=o.rs[n-1];
+  return '<b>Q'+r.n+' · '+esc(r.subj)+' · '+esc(r.chap)+'</b><br>'+esc(r.topic)+': '+esc(r.sub)+'<br>'+(r.o==='B'?'Not attempted. Correct answer is '+esc(r.key)+'. 0 marks.':'You marked '+esc(r.ans)+'. Correct answer is '+esc(r.key)+'. '+(r.o==='C'?'Right, +'+T.mc+' marks.':'Wrong, '+T.mw+' mark.'));
+}
+
+function renderResults(){
+  var T=TM[S.tid],rows=T.students.map(function(s){var P=PEOPLE[slug(s.name)],sm=summ(P,T),pr=priority(chapters(sm.rs))[0];return {P:P,s:s,sm:sm,pr:pr}}).sort(function(a,b){return a.s.rankSN-b.s.rankSN||a.P.name.localeCompare(b.P.name)});
+  var tot=rows.map(function(r){return r.sm.t}),avg=tot.reduce(function(a,b){return a+b},0)/tot.length;
+  var h='<div class="shead"><div class="who"><span class="label">SN branch</span><h2>Results</h2><span class="muted mono">'+esc(T.name)+' · '+fmtDate(T.date)+' · '+rows.length+' students</span></div></div>';
+  h+='<div class="strip"><div><span class="label">Highest</span><b>'+Math.max.apply(null,tot)+'</b><small>out of '+T.max+'</small></div><div><span class="label">Branch average</span><b>'+Math.round(avg)+'</b><small>'+pc(avg/T.max)+' of maximum</small></div><div><span class="label">Lowest</span><b>'+Math.min.apply(null,tot)+'</b><small>out of '+T.max+'</small></div>'+
+    '<div><span class="label">Students above 50%</span><b>'+tot.filter(function(x){return x>=T.max/2}).length+'</b><small>of '+rows.length+'</small></div></div>';
+  var tops=T.subjects.map(function(sj){var best=Math.max.apply(null,rows.map(function(r){return r.sm.sub[sj].m}));var who=rows.filter(function(r){return r.sm.sub[sj].m===best}).map(function(r){return r.P.name});return esc(sj)+': <b>'+best+'</b> ('+who.map(esc).join(', ')+')'});
+  h+='<p class="muted">Highest in each subject. '+tops.join(' · ')+'</p>';
+  h+='<section class="block"><header><h2>Rank list</h2><p>Select a name to open that student\'s report. SN rank counts SN students only. Overall rank counts all students who wrote the test.</p></header><div class="panel scroll"><table class="t"><thead><tr><th>Student</th><th class="r">SN rank</th><th class="r">Overall</th>'+T.subjects.map(function(sj){return '<th class="r">'+esc(sj.slice(0,4))+'</th>'}).join('')+'<th class="r">Total / '+T.max+'</th><th class="r">%</th><th>Needs most work</th></tr></thead><tbody>'+
+    rows.map(function(r){return '<tr><td><a class="linkbtn" href="#'+r.P.id+'">'+esc(r.P.name)+'</a></td><td class="r">#'+r.s.rankSN+'</td><td class="r">#'+r.s.rankAll+'</td>'+T.subjects.map(function(sj){return '<td class="r">'+r.sm.sub[sj].m+'</td>'}).join('')+'<td class="r"><b>'+r.sm.t+'</b></td><td class="r">'+pc(r.sm.pct)+'</td><td class="wrap">'+(r.pr?esc(r.pr.chap)+' <span class="muted mono">'+r.pr.c+'/'+r.pr.n+'</span>':'<span class="muted">None below 70%</span>')+'</td></tr>'}).join('')+'</tbody></table></div></section>';
+  $('#main').innerHTML=h;
+}
+
+function renderAnalysis(){
+  var T=TM[S.tid],tests=[T],bm=branchChap(tests),chs=Object.keys(bm).map(function(k){return bm[k]}).sort(function(a,b){return a.acc-b.acc||b.lost-a.lost});
+  var weakCount={};
+  LIST.forEach(function(P){var sm=summ(P,T);if(!sm)return;chapters(sm.rs).forEach(function(c){if(c.acc<.4)weakCount[c.key]=(weakCount[c.key]||0)+1})});
+  var N=T.students.length;
+  var h='<div class="shead"><div class="who"><span class="label">SN branch</span><h2>Branch analysis</h2><span class="muted mono">'+esc(T.name)+' · '+fmtDate(T.date)+' · '+N+' students</span></div></div>';
+  h+='<section class="block"><header><h2>Chapters, weakest first</h2><p>Share of all SN answers in each chapter that were right, wrong or left blank. Use this to plan revision classes.</p></header><div class="panel scroll"><table class="t"><thead><tr><th>Chapter</th><th>Subject</th><th class="r">Questions</th><th style="min-width:200px">Right / wrong / blank</th><th class="r">Right</th><th class="r">Students below 40%</th></tr></thead><tbody>'+
+    chs.map(function(c){var st=status(c.acc);return '<tr><td class="wrap"><b>'+esc(c.chap)+'</b></td><td><span class="subj">'+esc(c.subj)+'</span></td><td class="r">'+(c.n/N)+'</td><td>'+stack(c)+'</td><td class="r"><span class="chip '+st.k+'">'+pc(c.acc)+'</span></td><td class="r">'+(weakCount[c.key]||0)+' of '+N+'</td></tr>'}).join('')+'</tbody></table></div></section>';
+
+  var qs=T.qs.map(function(q,i){
+    var c=0,w=0,b=0,wrongOpt={};
+    T.students.forEach(function(s){var a=s.r[i]==null?'':String(s.r[i]).trim();if(a==='')b++;else if(a.toUpperCase()===String(T.key[i]).toUpperCase())c++;else{w++;wrongOpt[a]=(wrongOpt[a]||0)+1}});
+    var common=Object.keys(wrongOpt).sort(function(x,y){return wrongOpt[y]-wrongOpt[x]})[0];
+    return {n:i+1,q:q,key:T.key[i],c:c,w:w,b:b,common:common?common+' ('+wrongOpt[common]+')':'–'};
+  });
+  var sorted=qs.slice();
+  if(S.sort==='hard')sorted.sort(function(a,b){return a.c-b.c||b.w-a.w});
+  h+='<section class="block"><header><div class="tools"><h2>Question-wise results</h2><div class="seg" role="group" aria-label="Sort"><button type="button" data-sort="hard" aria-pressed="'+(S.sort==='hard')+'">Hardest first</button><button type="button" data-sort="order" aria-pressed="'+(S.sort==='order')+'">Question order</button></div></div><p>How many of the '+N+' SN students got each question right. The common wrong answer shows the option students picked most often, with the count.</p></header><div class="panel scroll"><table class="t"><thead><tr><th>Q</th><th>Chapter</th><th>Topic</th><th class="r">Key</th><th class="r">Right</th><th class="r">Wrong</th><th class="r">Blank</th><th class="r">Common wrong</th></tr></thead><tbody>'+
+    sorted.map(function(r){return '<tr><td class="mono"><b>'+r.n+'</b></td><td class="wrap">'+esc(r.q.chap)+'</td><td class="wrap">'+esc(r.q.topic)+'</td><td class="r mono">'+esc(r.key)+'</td><td class="r">'+r.c+' <span class="muted">('+pc(r.c/N)+')</span></td><td class="r">'+r.w+'</td><td class="r">'+r.b+'</td><td class="r mono">'+esc(r.common)+'</td></tr>'}).join('')+'</tbody></table></div></section>';
+  $('#main').innerHTML=h;
+}
+
+function render(){
+  renderChrome();
+  if(S.tab==='results')renderResults();
+  else if(S.tab==='analysis')renderAnalysis();
+  else if(S.pid&&PEOPLE[S.pid])renderReport(PEOPLE[S.pid]);
+  else renderLanding();
+}
+function route(){
+  var h=(location.hash||'').slice(1);
+  if(h==='results'||h==='analysis'){S.tab=h;S.pid=null}
+  else if(PEOPLE[h]){S.tab='student';S.pid=h}
+  else{S.tab='student';S.pid=null}
+  S.qsel=null;
+  render();
+  try{window.scrollTo(0,0)}catch(e){}
+}
+if(typeof document.addEventListener==='function'){
+  document.addEventListener('change',function(e){
+    if(e.target.id==='testSel'){S.tid=e.target.value;S.qsel=null;SC={};render()}
+    else if(e.target.id==='stuSel'){location.hash=e.target.value}
+  });
+  document.addEventListener('click',function(e){
+    var q=e.target.closest&&e.target.closest('[data-q]');
+    if(q){S.qsel=q.getAttribute('data-q');var P=PEOPLE[S.pid],y=window.scrollY;renderReport(P);try{window.scrollTo(0,y)}catch(_){}return}
+    var c=e.target.closest&&e.target.closest('[data-comb]');
+    if(c){S.comb=c.getAttribute('data-comb')==='1';S.qsel=null;var y2=window.scrollY;render();try{window.scrollTo(0,y2)}catch(_){}return}
+    var so=e.target.closest&&e.target.closest('[data-sort]');
+    if(so){S.sort=so.getAttribute('data-sort');var y3=window.scrollY;render();try{window.scrollTo(0,y3)}catch(_){}}
+  });
+}
+window.addEventListener('hashchange',route);
+route();
+})();
+</script>
