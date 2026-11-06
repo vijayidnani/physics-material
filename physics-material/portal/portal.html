@@ -53,7 +53,13 @@ button{cursor:pointer}
 .testbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .testbar select{padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);max-width:100%}
 .testname{font:500 13px var(--mono)}
-.testpick{margin-top:16px;padding:14px 16px 16px;border-radius:14px;background:linear-gradient(120deg,#1B2F8F 0%,#2446C9 45%,#7B3FB5 100%);color:#fff;box-shadow:0 6px 22px rgba(36,70,201,.28)}
+.testpick{position:sticky;top:8px;z-index:60;margin-top:16px;transition:padding .15s;padding:14px 16px 16px;border-radius:14px;background:linear-gradient(120deg,#1B2F8F 0%,#2446C9 45%,#7B3FB5 100%);color:#fff;box-shadow:0 6px 22px rgba(36,70,201,.28)}
+.testpick.compact{padding:7px 10px;border-radius:12px}
+.testpick.compact .tp-head,.testpick.compact .tp .tp-n,.testpick.compact .tp .tp-d{display:none}
+.testpick.compact .tp-list{gap:6px}
+.testpick.compact .tp{min-width:0;flex-direction:row;align-items:center;padding:5px 14px 5px 16px}
+.testpick.compact .tp .tp-s{font-size:1.05rem}
+.testpick.compact .tp[aria-pressed="true"]::after{display:none}
 .tp-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;margin-bottom:12px}
 .tp-head b{font:700 1.05rem var(--display);letter-spacing:.01em}
 .tp-head span{font-size:12.5px;opacity:.9}
@@ -88,6 +94,7 @@ button{cursor:pointer}
 .btn.warn.alt{background:#fff;color:#C2410C}
 .btn.warn svg{vertical-align:-2px;margin-right:6px}
 @media (max-width:560px){.tp{flex:1 1 calc(50% - 10px);min-width:0}}
+@media (max-width:560px){.testpick.compact .tp{flex:1 1 auto;padding:5px 8px 5px 12px;justify-content:center}.testpick.compact .tp-list{gap:5px}}
 
 .tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);overflow-x:auto}
 .tabs a{padding:10px 16px;text-decoration:none;color:var(--muted);font-weight:500;border-bottom:3px solid transparent;margin-bottom:-1px;white-space:nowrap}
@@ -978,6 +985,10 @@ document.addEventListener('click',e=>{
   const pdfB=t('[data-pdf]');if(pdfB){doPDF(pdfB.getAttribute('data-pdf'));return}
   const tpB=t('[data-test]');if(tpB){S.tid=tpB.getAttribute('data-test');S.qsel=null;keepScroll(render);return}
 });
+(function(){const el=()=>$('#testbar');let tk=false;
+  const upd=()=>{tk=false;const e=el();if(!e)return;const y=window.pageYOffset||document.documentElement.scrollTop||0,c=e.classList.contains('compact');
+    if(!c&&y>260)e.classList.add('compact');else if(c&&y<90)e.classList.remove('compact')};
+  window.addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(upd)}},{passive:true})})();
 window.addEventListener('hashchange',route);
 route();
 })();
